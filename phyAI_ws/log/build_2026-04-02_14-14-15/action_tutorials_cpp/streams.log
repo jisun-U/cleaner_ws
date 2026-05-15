@@ -1,0 +1,22 @@
+[0.015s] Invoking command in '/home/sunny/ros2_ws/build/action_tutorials_cpp': CMAKE_PREFIX_PATH=/home/sunny/ros2_ws/install/action_tutorials_interfaces:/home/sunny/ros2_ws/install/action_tutorials_cpp:/home/sunny/ros2_ws/install/yolov8_bringup:/home/sunny/ros2_ws/install/yolov8_msgs:/home/sunny/ros2_ws/install/usb_cam:/home/sunny/ros2_ws/install/turtlesim:/home/sunny/ros2_ws/install/my_package:/home/sunny/ros2_ws/install/cpp_svcli:/home/sunny/ros2_ws/install/cpp_pubsub:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble LD_LIBRARY_PATH=/home/sunny/ros2_ws/install/action_tutorials_interfaces/lib:/home/sunny/ros2_ws/install/action_tutorials_cpp/lib:/usr/local/cuda/lib64:/home/sunny/ros2_ws/install/yolov8_msgs/lib:/home/sunny/ros2_ws/install/usb_cam/lib:/home/sunny/ros2_ws/install/turtlesim/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/sunny/ros2_ws/build/action_tutorials_cpp -- -j16 -l16
+[0.046s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.159s] -- Found action_tutorials_interfaces: 0.0.0 (/home/sunny/ros2_ws/install/action_tutorials_interfaces/share/action_tutorials_interfaces/cmake)
+[0.180s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.182s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.186s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.194s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.203s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.239s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.260s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.261s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.372s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.411s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[0.416s] -- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+[0.433s] [31mCMake Error at CMakeLists.txt:50 (install):
+[0.433s]   install TARGETS given target "/" which does not exist.
+[0.433s] 
+[0.433s] [0m
+[0.481s] -- Configuring incomplete, errors occurred!
+[0.481s] See also "/home/sunny/ros2_ws/build/action_tutorials_cpp/CMakeFiles/CMakeOutput.log".
+[0.488s] gmake: *** [Makefile:390: cmake_check_build_system] 오류 1
+[0.502s] Invoked command in '/home/sunny/ros2_ws/build/action_tutorials_cpp' returned '2': CMAKE_PREFIX_PATH=/home/sunny/ros2_ws/install/action_tutorials_interfaces:/home/sunny/ros2_ws/install/action_tutorials_cpp:/home/sunny/ros2_ws/install/yolov8_bringup:/home/sunny/ros2_ws/install/yolov8_msgs:/home/sunny/ros2_ws/install/usb_cam:/home/sunny/ros2_ws/install/turtlesim:/home/sunny/ros2_ws/install/my_package:/home/sunny/ros2_ws/install/cpp_svcli:/home/sunny/ros2_ws/install/cpp_pubsub:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble LD_LIBRARY_PATH=/home/sunny/ros2_ws/install/action_tutorials_interfaces/lib:/home/sunny/ros2_ws/install/action_tutorials_cpp/lib:/usr/local/cuda/lib64:/home/sunny/ros2_ws/install/yolov8_msgs/lib:/home/sunny/ros2_ws/install/usb_cam/lib:/home/sunny/ros2_ws/install/turtlesim/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/sunny/ros2_ws/build/action_tutorials_cpp -- -j16 -l16

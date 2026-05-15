@@ -1,0 +1,25 @@
+[0.625s] Invoking command in '/home/sunny/ros2_ws/src/gptapi': PYTHONPATH=/home/sunny/ros2_ws/build/gptapi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gptapi build --build-base /home/sunny/ros2_ws/build/gptapi/build install --record /home/sunny/ros2_ws/build/gptapi/install.log --single-version-externally-managed install_data
+[0.787s] running egg_info
+[0.787s] writing ../../build/gptapi/gptapi.egg-info/PKG-INFO
+[0.787s] writing dependency_links to ../../build/gptapi/gptapi.egg-info/dependency_links.txt
+[0.787s] writing entry points to ../../build/gptapi/gptapi.egg-info/entry_points.txt
+[0.788s] writing requirements to ../../build/gptapi/gptapi.egg-info/requires.txt
+[0.788s] writing top-level names to ../../build/gptapi/gptapi.egg-info/top_level.txt
+[0.789s] reading manifest file '../../build/gptapi/gptapi.egg-info/SOURCES.txt'
+[0.789s] writing manifest file '../../build/gptapi/gptapi.egg-info/SOURCES.txt'
+[0.789s] running build
+[0.789s] running build_py
+[0.789s] copying gptapi/action_generator.py -> /home/sunny/ros2_ws/build/gptapi/build/lib/gptapi
+[0.790s] running install
+[0.790s] running install_lib
+[0.790s] copying /home/sunny/ros2_ws/build/gptapi/build/lib/gptapi/action_generator.py -> /home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages/gptapi
+[0.791s] byte-compiling /home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages/gptapi/action_generator.py to action_generator.cpython-310.pyc
+[0.791s] running install_data
+[0.791s] running install_egg_info
+[0.792s] removing '/home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages/gptapi-0.0.0-py3.10.egg-info' (and everything under it)
+[0.792s] Copying ../../build/gptapi/gptapi.egg-info to /home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages/gptapi-0.0.0-py3.10.egg-info
+[0.793s] running install_scripts
+[0.805s] Installing action_generator script to /home/sunny/ros2_ws/install/gptapi/lib/gptapi
+[0.805s] Installing action_interpreter script to /home/sunny/ros2_ws/install/gptapi/lib/gptapi
+[0.806s] writing list of installed files to '/home/sunny/ros2_ws/build/gptapi/install.log'
+[0.832s] Invoked command in '/home/sunny/ros2_ws/src/gptapi' returned '0': PYTHONPATH=/home/sunny/ros2_ws/build/gptapi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/ros2_ws/install/gptapi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gptapi build --build-base /home/sunny/ros2_ws/build/gptapi/build install --record /home/sunny/ros2_ws/build/gptapi/install.log --single-version-externally-managed install_data

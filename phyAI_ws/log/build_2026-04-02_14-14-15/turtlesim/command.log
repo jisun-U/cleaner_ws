@@ -1,0 +1,1 @@
+Invoking command in '/home/sunny/ros2_ws/build/turtlesim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/turtlesim -- -j16 -l16

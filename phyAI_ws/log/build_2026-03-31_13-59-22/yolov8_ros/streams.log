@@ -1,0 +1,24 @@
+[0.738s] Invoking command in '/home/sunny/ros2_ws/src/yolo_ros/yolov8_ros': PYTHONPATH=/home/sunny/ros2_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/ros2_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/ros2_ws/build/yolov8_ros/build install --record /home/sunny/ros2_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[0.940s] running egg_info
+[0.941s] writing ../../../build/yolov8_ros/yolov8_ros.egg-info/PKG-INFO
+[0.941s] writing dependency_links to ../../../build/yolov8_ros/yolov8_ros.egg-info/dependency_links.txt
+[0.941s] writing entry points to ../../../build/yolov8_ros/yolov8_ros.egg-info/entry_points.txt
+[0.941s] writing requirements to ../../../build/yolov8_ros/yolov8_ros.egg-info/requires.txt
+[0.941s] writing top-level names to ../../../build/yolov8_ros/yolov8_ros.egg-info/top_level.txt
+[0.943s] reading manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.943s] writing manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[0.944s] running build
+[0.944s] running build_py
+[0.944s] running install
+[0.944s] running install_lib
+[0.945s] running install_data
+[0.945s] running install_egg_info
+[0.946s] removing '/home/sunny/ros2_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info' (and everything under it)
+[0.947s] Copying ../../../build/yolov8_ros/yolov8_ros.egg-info to /home/sunny/ros2_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info
+[0.947s] running install_scripts
+[0.963s] Installing debug_node script to /home/sunny/ros2_ws/install/yolov8_ros/lib/yolov8_ros
+[0.963s] Installing detect_3d_node script to /home/sunny/ros2_ws/install/yolov8_ros/lib/yolov8_ros
+[0.963s] Installing tracking_node script to /home/sunny/ros2_ws/install/yolov8_ros/lib/yolov8_ros
+[0.963s] Installing yolov8_node script to /home/sunny/ros2_ws/install/yolov8_ros/lib/yolov8_ros
+[0.964s] writing list of installed files to '/home/sunny/ros2_ws/build/yolov8_ros/install.log'
+[0.986s] Invoked command in '/home/sunny/ros2_ws/src/yolo_ros/yolov8_ros' returned '0': PYTHONPATH=/home/sunny/ros2_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/ros2_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/ros2_ws/build/yolov8_ros/build install --record /home/sunny/ros2_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data

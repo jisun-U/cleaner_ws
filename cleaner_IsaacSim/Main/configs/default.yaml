@@ -1,0 +1,37 @@
+assets: # 아이작심 내 프림 경로 저장
+        usd_path: /home/sunny/cleaner_ws/cleaner_IsaacSim/cleaner_Mechanics/usd_file/basic_setting_fin_noaction.usd
+        cleaner_prim: /World/turtlebot4 # 로봇 전체를 대표하는 루트 prim
+        odom_prim: /World/odom
+        base_link: /World/turtlebot4/base_link #TF 기준이 되는 바디 프레임, articulation, odometry 계산할 때 사용
+        camera_prim: /World/turtlebot4/rgb_d455/RSD455/Camera_OmniVision_OV9782_Color
+        imu_prim: /World/turtlebot4/rgb_d455/RSD455/Imu_Sensor
+        lidar_prim_2d: /World/turtlebot4/RPLIDAR_S2E/RPLIDAR_S2E
+        wheel_drop_left_prim: /World/turtlebot4/wheel_drop_left
+        wheel_drop_right_prim: /World/turtlebot4/wheel_drop_right
+        left_wheel_prim: /World/turtlebot4/left_wheel
+        right_wheel_prim: /World/turtlebot4/right_wheel
+
+ros:
+      domain_id: 21
+
+      topics: #publish/subscribe할 토픽 이름들
+        odom: /odom
+        cmd_twist: /cmd_vel
+        clock: /clock
+        joint_state: /joint_states
+        #sensors
+        imu: /imu
+        camera_rgb: /yolo/image_raw
+        camera_info: camera_info
+        camera_depth: depth
+        scan: /scan
+
+      frames:
+        odom: odom
+        base_link: base_link
+        #sensors
+        imu_frame: Imu_Sensor
+        camera_frame: Camera_OmniVision_OV9782_Color
+        base_scan: RPLIDAR_S2E
+
+  

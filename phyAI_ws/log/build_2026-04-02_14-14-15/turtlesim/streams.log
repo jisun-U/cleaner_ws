@@ -1,0 +1,27 @@
+[0.455s] Invoking command in '/home/sunny/ros2_ws/build/turtlesim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/turtlesim -- -j16 -l16
+[0.507s] [  1%] Built target turtlesim__cpp
+[0.544s] [  1%] Built target ament_cmake_python_copy_turtlesim
+[0.571s] [ 11%] Built target turtlesim__rosidl_typesupport_introspection_cpp
+[0.813s] running egg_info
+[0.813s] writing turtlesim.egg-info/PKG-INFO
+[0.813s] writing dependency_links to turtlesim.egg-info/dependency_links.txt
+[0.814s] writing top-level names to turtlesim.egg-info/top_level.txt
+[0.816s] reading manifest file 'turtlesim.egg-info/SOURCES.txt'
+[0.816s] writing manifest file 'turtlesim.egg-info/SOURCES.txt'
+[0.843s] [ 11%] Built target ament_cmake_python_build_turtlesim_egg
+[0.873s] [ 21%] Built target turtlesim__rosidl_typesupport_fastrtps_cpp
+[0.904s] [ 31%] Built target turtlesim__rosidl_typesupport_cpp
+[0.931s] [ 41%] Built target turtlesim__rosidl_generator_c
+[0.959s] [ 43%] Built target mimic
+[0.982s] [ 53%] Built target turtlesim__rosidl_typesupport_c
+[1.010s] [ 63%] Built target turtlesim__rosidl_typesupport_introspection_c
+[1.037s] [ 73%] Built target turtlesim__rosidl_typesupport_fastrtps_c
+[1.066s] [ 75%] Built target draw_square
+[1.087s] [ 75%] Built target turtlesim
+[1.115s] [ 77%] Built target turtle_teleop_key
+[1.137s] [ 78%] Built target turtlesim__py
+[1.171s] [ 84%] Built target turtlesim_node
+[1.197s] [ 93%] Built target turtlesim__rosidl_generator_py
+[1.225s] [ 95%] Built target turtlesim__rosidl_typesupport_fastrtps_c__pyext
+[1.247s] [ 97%] Built target turtlesim__rosidl_typesupport_c__pyext
+[1.272s] [100%] Built target turtlesim__rosidl_typesupport_introspection_c__pyext

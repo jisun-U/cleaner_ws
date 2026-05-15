@@ -1,0 +1,22 @@
+[0.480s] Invoking command in '/home/sunny/ros2_ws/build/my_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake /home/sunny/ros2_ws/src/my_package -DCMAKE_INSTALL_PREFIX=/home/sunny/ros2_ws/install/my_package
+[0.494s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.733s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.793s] Traceback (most recent call last):
+[0.801s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+[0.801s]     from catkin_pkg.package import parse_package_string
+[0.801s] ModuleNotFoundError: No module named 'catkin_pkg'
+[0.807s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[0.807s]   execute_process(/home/sunny/anaconda3/bin/python3
+[0.807s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[0.807s]   /home/sunny/ros2_ws/src/my_package/package.xml
+[0.807s]   /home/sunny/ros2_ws/build/my_package/ament_cmake_core/package.cmake)
+[0.807s]   returned error code 1
+[0.807s] Call Stack (most recent call first):
+[0.807s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[0.807s]   /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[0.807s]   CMakeLists.txt:39 (ament_lint_auto_find_test_dependencies)
+[0.808s] 
+[0.808s] [0m
+[0.808s] -- Configuring incomplete, errors occurred!
+[0.808s] See also "/home/sunny/ros2_ws/build/my_package/CMakeFiles/CMakeOutput.log".
+[0.814s] Invoked command in '/home/sunny/ros2_ws/build/my_package' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake /home/sunny/ros2_ws/src/my_package -DCMAKE_INSTALL_PREFIX=/home/sunny/ros2_ws/install/my_package

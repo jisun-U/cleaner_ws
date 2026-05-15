@@ -1,0 +1,8 @@
+[0.406s] Invoking command in '/home/sunny/ros2_ws/build/usb_cam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/usb_cam -- -j16 -l16
+[0.455s] [ 14%] Built target usb_cam
+[0.481s] [ 28%] Built target gtest
+[0.512s] [ 42%] Built target usb_cam_node
+[0.537s] [ 57%] Built target gtest_main
+[0.567s] [ 71%] Built target usb_cam_node_exe
+[0.596s] [ 85%] Built target test_pixel_formats
+[0.624s] [100%] Built target test_usb_cam_utils

@@ -1,0 +1,6 @@
+Invoking command in '/home/sunny/ros2_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/ros2_ws/src/yolo_ros/yolov8_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/ros2_ws/install/yolov8_msgs
+Invoked command in '/home/sunny/ros2_ws/build/yolov8_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/ros2_ws/src/yolo_ros/yolov8_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/ros2_ws/install/yolov8_msgs
+Invoking command in '/home/sunny/ros2_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/yolov8_msgs -- -j16 -l16
+Invoked command in '/home/sunny/ros2_ws/build/yolov8_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/yolov8_msgs -- -j16 -l16
+Invoking command in '/home/sunny/ros2_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/ros2_ws/build/yolov8_msgs
+Invoked command in '/home/sunny/ros2_ws/build/yolov8_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/ros2_ws/build/yolov8_msgs
