@@ -1,4 +1,0 @@
-[console_scripts]
-action_generator = gptapi.action_generator:main
-action_interpreter = gptapi.action_interpreter:main
-

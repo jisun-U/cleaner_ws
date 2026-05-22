@@ -1,6 +1,0 @@
-[0.210s] Invoking command in '/home/sunny/ros2_ws/build/cpp_pubsub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunny/ros2_ws/install/yolov8_ros:/home/sunny/ros2_ws/install/gptapi:/opt/ros/humble /usr/bin/cmake --build /home/sunny/ros2_ws/build/cpp_pubsub -- -j16 -l16
-[0.427s] [ 50%] Built target talker
-[0.427s] [35m[1mConsolidate compiler generated dependencies of target listener[0m
-[0.427s] [ 75%] [32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o[0m
-[6.234s] [100%] [32m[1mLinking CXX executable listener[0m
-[6.497s] [100%] Built target listener

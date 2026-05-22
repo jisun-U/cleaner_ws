@@ -3,19 +3,34 @@
 프로젝트 목적 : 사용자의 맥락적 요구사항(Contextual Requirements) 분석을 통한 지능형 시설 관리 인터페이스 구현
 
 
-### SLAM MODE
+
 
 isaacsim 환경 실행
 ```
-conda activate env_isaaclab
-~/isaac-sim/python.sh '~/cleaner_ws/cleaner_IsaacSim/Main/main.py'
+source /opt/ros/humble/setup.bash
+conda activate {가상환경 이름}
+~/isaac-sim/python.sh {directory}/cleaner_ws/cleaner_IsaacSim/Main/main.py
 ```
 
-tmuxp 실행
+
+### slam mode
+
+teleop 명령으로 로봇 이동하며 맵 작성
+
 ```
-conda activate env_isaaclab
-tmuxp load '~/cleaner_ws/phyAI_ws/cleaner.yaml' 
+ros2 launch slam_toolbox online_async_launch.py \
+    slam_params_file:={directory}/cleaner_ws/phyAI_ws/slam_toolbox_params.yaml \
+    use_sim_time:=true
 ```
+
+### nav2_bringup mode
+```
+ros2 launch nav2_bringup bringup_launch.py \
+use_sim_time:=true \
+map:={directory}/cleaner_ws/phyAI_ws/map/may15_v2_revised.yaml \
+params_file:={directory}/cleaner_ws/phyAI_ws/nav2_localization_params.yaml
+```
+
 
 rviz에서 2D Nav Goal지정 후, map 그리기
 
