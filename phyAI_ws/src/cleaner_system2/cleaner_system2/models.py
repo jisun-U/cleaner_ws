@@ -1,6 +1,6 @@
 # cleaner_system2/models.py
 from typing import List, Optional, Dict, Any, Literal
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field # pydantic : 데이터가 우리가 정한 규칙에 맞는지 검사함
 
 
 class Step(BaseModel):

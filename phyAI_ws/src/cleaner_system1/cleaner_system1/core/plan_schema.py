@@ -4,20 +4,20 @@ HIGH_LEVEL_PLAN_SCHEMA: Dict[str, Any] = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "HighLevelPlan",
     "type": "object",
-    "required": ["version", "mission_id", "intent", "steps"],
+    "required": ["version", "mission_id", "intent", "steps"], # 반드시 네 가지 구성요소가 들어가야함
     "properties": {
         "version": {"type": "string", "const": "1.0.0"},
 
         "mission_id": {"type": "string", "minLength": 1},
         "intent": {"type": "string", "minLength": 1},
-        "constraints": {"type": "array", "items": {"type": "string"}},
+        "constraints": {"type": "array", "items": {"type": "string"}}, # 제약조건은 자유롭게 문자열로 나열
 
         "steps": {
             "type": "array",
             "minItems": 1,
             "items": {
                 "type": "object",
-                "required": ["task", "params"],
+                "required": ["task", "params"], # task, params는 반드시 들어가야함. guard, retry는 선택적 요소
                 "properties": {
                     # 여기서 5개 단위 액션만 허용
                     "task": {

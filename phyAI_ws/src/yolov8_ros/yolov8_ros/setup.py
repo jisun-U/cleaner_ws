@@ -14,7 +14,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='Miguel Ángel González Santamarta',
-    maintainer_email='mgons@unileon.es',
+    maintainer_email='dja211024@gmail.com',
     description='YOLOv8 for ROS 2',
     license='GPL-3',
     tests_require=['pytest'],

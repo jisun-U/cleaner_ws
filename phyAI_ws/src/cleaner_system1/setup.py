@@ -19,8 +19,8 @@ setup(
     ],
     zip_safe=True,
     maintainer='geunpilpark',
-    maintainer_email='engiman0401@gmail.com',
-    description='System-1 executor for ATS (plan orchestration, Nav2, scan/track).',
+    maintainer_email='dja211024@gmail.com',
+    description='System-1 executor for cleaner (plan orchestration, Nav2, scan/track).',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={

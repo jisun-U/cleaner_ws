@@ -33,7 +33,7 @@ class System1ExecutorNode(Node):
 
     지원 Task:
       - move_to         : 지정 위치로 이동 (Nav2 기반)
-      - scan            : ATS로 주변 스캔
+      - scan            : cleaner로 주변 스캔
       - report_and_wait : 현재 상황 보고 + System2 응답 대기
       - track           : 타겟 추적 (Tracker)
       - return_to_home  : Home 위치로 복귀(move_to 재사용)
@@ -84,7 +84,6 @@ class System1ExecutorNode(Node):
         self.pub_cleaner = pubs["cleaner"]
         self.pub_replan = pubs["replan"]
         self.pub_cmd = pubs["cmd_vel"]
-        self.pub_gimbal = pubs["gimbal"]
 
         create_subscriptions(self, self.on_plan_cmd, self.on_vision)
         self.create_subscription(String, "/vision_context_raw", self.on_vision_raw, 10)
@@ -104,14 +103,11 @@ class System1ExecutorNode(Node):
         self.tracker = Tracker(
             self,
             self.pub_cmd,
-            self.pub_gimbal,
             self.vision,
             self.depth,
-            cleaner_twist_topic="/cleaner_twist",
-            publish_legacy_array=True,
             tf_buffer=self.tf_buffer,
-            tf_base_frame="body",
-            tf_camera_frame="Camera",
+            tf_base_frame="base_link", # 현재 cleaner의 TF 프레임 이름으로 수정
+            tf_camera_frame="Camera_OmniVision_OV9782_Color",
             use_tf_align=True,
             camera_forward_axis="z",
         )
@@ -124,11 +120,11 @@ class System1ExecutorNode(Node):
         self.lock = threading.Lock()
         self.create_timer(0.5, self.publish_state)
 
-        self.get_logger().info("System-1 Executor up (6 unit actions).")
+        self.get_logger().info("System-1 Executor up (6 unit actions).") 
 
     # ----------- 유틸: 하드 스톱 -----------
     def _hard_stop(self):
-        """모든 구동 정지(바디, 짐벌, 네비). 큐는 유지."""
+        """모든 구동 정지(바디, 네비). 큐는 유지."""
         # 1) Tracker 정지
         try:
             if hasattr(self.tracker, "stop"):
@@ -154,7 +150,7 @@ class System1ExecutorNode(Node):
 
     # ----------- Plan 콜백 -----------
     def on_plan_cmd(self, msg):
-        # msg.plan_json 기반 (ATS 상위에서 JSON string 전달한다고 가정)
+        # msg.plan_json 기반 (cleaner 상위에서 JSON string 전달한다고 가정)
         try:
             plan = json.loads(msg.plan_json)
         except Exception as e:
@@ -224,7 +220,7 @@ class System1ExecutorNode(Node):
     def on_vision(self, msg):
         data = msg.data.strip() if hasattr(msg, "data") and msg.data else ""
         if not data or data[0] not in ("{", "["):
-            return
+            return # json이 아니므로 99프로 무시됨
         try:
             raw = json.loads(data)
         except Exception as e:
@@ -239,9 +235,9 @@ class System1ExecutorNode(Node):
 
     def on_vision_raw(self, msg: String):
         try:
-            raw = json.loads(msg.data) if msg and msg.data else {}
-            norm = self._normalize_raw_vision(raw)
-            self.vision.update_from_msg(json.dumps(norm), self.get_logger())
+            raw = json.loads(msg.data) if msg and msg.data else {} # String 메시지에서 JSON 파싱
+            norm = self._normalize_raw_vision(raw) # 일반화(중요)
+            self.vision.update_from_msg(json.dumps(norm), self.get_logger()) # 일반화된 메세지로 VisionCache 업데이트
         except Exception as e:
             self.get_logger().warn(f"[vision/raw] parse failed: {e}")
 
@@ -333,8 +329,6 @@ class System1ExecutorNode(Node):
 
                 sweep_deg      = float(params.get("sweep_deg", 90.0))
                 yaw_rate_dps   = float(params.get("yaw_rate_dps", params.get("yaw_rate", 20.0)))
-                pitch_deg_up   = float(params.get("pitch_deg_up", 0.0))
-                pitch_deg_down = float(params.get("pitch_deg_down", 0.0))
                 duration_sec   = float(params.get("duration_sec", 20.0))
 
                 watch_classes  = params.get("watch_classes")
@@ -352,8 +346,6 @@ class System1ExecutorNode(Node):
                     cmd_pub=self.pub_cmd,
                     sweep_deg=sweep_deg,
                     yaw_rate_dps=yaw_rate_dps,
-                    pitch_deg_up=pitch_deg_up,
-                    pitch_deg_down=pitch_deg_down,
                     duration_sec=duration_sec,
                     watch_classes=watch_classes,
                     watch_ids=watch_ids,
@@ -527,7 +519,7 @@ class System1ExecutorNode(Node):
     def _log_tf_pose(self):
         """TF 기반 현재 포즈 업데이트 (로그는 debug로만)."""
         try:
-            tf = self.tf_buffer.lookup_transform("map", "body", rclpy.time.Time())
+            tf = self.tf_buffer.lookup_transform("map", "base_link", rclpy.time.Time())
             t = tf.transform.translation
             q = tf.transform.rotation
             yaw = quat_to_yaw(q)

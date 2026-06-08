@@ -5,7 +5,6 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import rclpy
 from geometry_msgs.msg import Twist
-from std_msgs.msg import Float64MultiArray
 from tf2_ros import Buffer
 from rclpy.node import Node
 
@@ -184,26 +183,18 @@ class Tracker:
         self,
         node: Node,
         cmd_pub,
-        gimbal_pub,
         vision_cache,
         depth: DepthBuffer,
-        cleaner_twist_topic: str = "/cleaner_twist",
-        publish_legacy_array: bool = True,
         tf_buffer: Optional[Buffer] = None,
-        tf_base_frame: str = "body",
-        tf_camera_frame: str = "Camera",
+        tf_base_frame: str = "base_link",
+        tf_camera_frame: str = "Camera_OmniVision_OV9782_Color",
         use_tf_align: bool = True,
         camera_forward_axis: str = "z",
     ):
         self.node = node
         self.cmd_pub = cmd_pub
-        self.gimbal_pub = gimbal_pub
         self.vision = vision_cache
         self.depth = depth
-
-        # pubs
-        self.cleaner_twist_pub = self.node.create_publisher(Twist, cleaner_twist_topic, 10)
-        self.publish_legacy_array = bool(publish_legacy_array)
 
         # TF/프레임
         self.tf_buffer = tf_buffer
@@ -226,14 +217,6 @@ class Tracker:
         # sticky target
         self._lock: Dict[str, Any] = {"id": None, "bbox": None, "center": None, "class": None, "last_t": 0.0}
         self._sticky_id_last = None
-
-        # 짐벌 PID 상태
-        self._yaw_i = 0.0
-        self._yaw_prev_err = 0.0
-        self._yaw_d_lpf = 0.0
-        self._yaw_cmd_prev = 0.0
-        self._prev_cam_t = time.time()
-        self._last_target_id_for_i = None
 
         # ----------- 비동기 운용 상태 -----------
         self._cancel_event = threading.Event()
@@ -267,15 +250,6 @@ class Tracker:
     def _publish_zero_once(self):
         t = Twist(); t.linear.x = 0.0; t.angular.z = 0.0
         try: self.cmd_pub.publish(t)
-        except Exception: pass
-
-        if self.gimbal_pub is not None and self.publish_legacy_array:
-            m = Float64MultiArray(); m.data = [0.0, 0.0]
-            try: self.gimbal_pub.publish(m)
-            except Exception: pass
-
-        tw = Twist(); tw.angular.z = 0.0; tw.angular.y = 0.0
-        try: self.cleaner_twist_pub.publish(tw)
         except Exception: pass
 
     def _flush_stop(self, times: Optional[int] = None, sleep_s: Optional[float] = None):
@@ -395,14 +369,13 @@ class Tracker:
         yaw_rel_deg: float, wz: float, vx: float,
         follow_dist: float, range_m: Optional[float], err: Optional[float],
         aligned: bool, yaw_deadband_enter_deg: float,
-        yaw_rate: float, pitch_rate: float
     ):
         lines = [
             "[TRACK STATUS]",
             f"- Target    : class={tclass}, id={_as_str(tid)}",
             f"- Range     : {_fmt(range_m,'{:.2f}')} m  (follow={_fmt(follow_dist,'{:.2f}')} m, err={_fmt(err,'{:+.2f}')} m)",
             f"- Align     : yaw_rel={_fmt(yaw_rel_deg,'{:.2f}')} deg, aligned={aligned} (≤{_fmt(yaw_deadband_enter_deg,'{:.1f}')}° hold)",
-            f"- Command   : wz={_fmt(wz,'{:+.3f}')}, vx={_fmt(vx,'{:+.3f}')}  |  gimbal(y,p)=({_fmt(yaw_rate,'{:+.4f}')}, {_fmt(pitch_rate,'{:+.4f}')})",
+            f"- Command   : wz={_fmt(wz,'{:+.3f}')}, vx={_fmt(vx,'{:+.3f}')}",
         ]
         self.node.get_logger().info("\n" + "\n".join(lines))
 
@@ -412,7 +385,7 @@ class Tracker:
         ok = lambda b: "✔" if b else "✗"
         lines = [
             "[SUCCESS WINDOW]",
-            f"- Gimbal  : {ok(in_yaw)}  (hold {yaw_hold:.2f}/{success_hold_sec:.2f}s, thr ≤{success_yaw_deg:.1f}°)",
+            f"- Align   : {ok(in_yaw)}  (hold {yaw_hold:.2f}/{success_hold_sec:.2f}s, thr ≤{success_yaw_deg:.1f}°)",
             f"- Distance: {ok(in_dist)} (hold {dist_hold:.2f}/{success_hold_sec:.2f}s, thr ≤{dist_tol_m:.2f} m)",
             f"- BOTH    : {ok(in_yaw and in_dist)} (hold {both_hold:.2f}/{success_hold_sec:.2f}s)",
         ]
@@ -433,25 +406,12 @@ class Tracker:
             self.node.get_logger().info(text)
 
     # ----------- 내부 공통 루프(블로킹/비동기 공용) -----------
-    def _control_step(self, cfg: Dict[str, Any]) -> Tuple[bool, bool, float, float, float, float, Optional[float], Optional[float]]:
+    def _control_step(self, cfg: Dict[str, Any]) -> Tuple[bool, bool, float, float, float, Optional[float], Optional[float]]:
         """
         한 사이클 제어 실행.
-        반환: (aligned, moved, yaw_rel_deg, wz, vx, yaw_rate, range_m, dist_err)
+        반환: (aligned, moved, yaw_rel_deg, wz, vx, range_m, dist_err)
         """
         # ----------- 파라미터(필요 최소치) -----------
-        k_yaw        = float(cfg.get("k_yaw_px",   0.001)) #0.00045
-        k_yaw_d      = float(cfg.get("k_yaw_d_px", 0.0005)) #0.00025
-        yaw_d_lpf_a  = float(cfg.get("yaw_d_lpf_alpha", 0.2))
-        k_yaw_i      = float(cfg.get("k_yaw_i_px", 0.0005)) #.00001
-        i_cap        = float(cfg.get("yaw_i_cap",  0.08))
-        slew_cap     = float(cfg.get("yaw_slew_cap", 4.0))
-        cmd_lpf_a    = float(cfg.get("yaw_cmd_lpf_alpha", 0.25))
-
-        k_pitch = float(cfg.get("k_pitch_px", 0.0004))
-        gimbal_rate_cap = float(cfg.get("gimbal_rate_cap", 1.2))
-        cam_hfov_deg = float(cfg.get("cam_hfov_deg", 70.0))
-        px_deadband  = float(cfg.get("px_deadband", 6.0)) #12.0
-
         kp_align         = float(cfg.get("kp_align", 3.0))
         kd_align         = float(cfg.get("kd_align", 2.0))
         kd_lpf_alpha     = float(cfg.get("kd_lpf_alpha", 0.25))
@@ -487,7 +447,7 @@ class Tracker:
         cand, meta = self._choose_target(targets, chosen, fw, fh)
         if not cand:
             self._publish_zero_once()
-            return False, False, 0.0, 0.0, 0.0, 0.0, None, None
+            return False, False, 0.0, 0.0, 0.0, None, None
 
         # sticky
         old_id = self._lock.get("id")
@@ -497,70 +457,13 @@ class Tracker:
             self.node.get_logger().info(
                 f"[sticky] target id changed: {old_id} -> {new_id} (reason={meta.get('method')})"
             )
-        if _as_str(new_id) != _as_str(self._last_target_id_for_i):
-            self._last_target_id_for_i = _as_str(new_id)
-            self._yaw_i = 0.0
 
-        # 2) 짐벌 제어
-        bbox, center = cand.get("bbox"), cand.get("center")
-        if bbox and len(bbox) >= 4:
-            x, y, w, h = bbox
-            err_px_x = (x + w*0.5) - cx
-            err_px_y = (y + h*0.5) - cy
-        elif isinstance(center, dict) and "x" in center and "y" in center:
-            err_px_x = float(center["x"]) - cx
-            err_px_y = float(center["y"]) - cy
-        else:
-            self._publish_zero_once()
-            return False, False, 0.0, 0.0, 0.0, 0.0, None, None
-
-        if abs(err_px_x) < px_deadband: err_px_x = 0.0
-        if abs(err_px_y) < px_deadband: err_px_y = 0.0
-
-        now_cam = time.time()
-        dt2 = max(1e-3, now_cam - self._prev_cam_t)
-
-        derr = (err_px_x - self._yaw_prev_err) / dt2
-        self._yaw_d_lpf = (1.0 - yaw_d_lpf_a) * self._yaw_d_lpf + yaw_d_lpf_a * derr
-
-        allow_i = (abs(err_px_x) <= (px_deadband * 3.0))
-        yaw_i_next = self._yaw_i
-        if k_yaw_i > 0.0 and allow_i:
-            yaw_i_next = self._yaw_i + (k_yaw_i * err_px_x * dt2)
-            yaw_i_next = _clamp(yaw_i_next, -i_cap, +i_cap)
-
-        yaw_rate_cmd = -(k_yaw * err_px_x + k_yaw_d * self._yaw_d_lpf + yaw_i_next)
-        yaw_rate_cmd = (1.0 - cmd_lpf_a) * self._yaw_cmd_prev + cmd_lpf_a * yaw_rate_cmd
-
-        max_step = slew_cap * dt2
-        yaw_step = _clamp(yaw_rate_cmd - self._yaw_cmd_prev, -max_step, +max_step)
-        yaw_rate_cmd = self._yaw_cmd_prev + yaw_step
-
-        yaw_rate_sat = _clamp(yaw_rate_cmd, -gimbal_rate_cap, gimbal_rate_cap)
-        if abs(yaw_rate_cmd) < gimbal_rate_cap * 0.999:
-            self._yaw_i = yaw_i_next
-
-        self._yaw_prev_err = err_px_x
-        self._yaw_cmd_prev = yaw_rate_sat
-        self._prev_cam_t = now_cam
-
-        yaw_rate   = float(yaw_rate_sat)
-        pitch_rate = _clamp( k_pitch * err_px_y, -gimbal_rate_cap, gimbal_rate_cap)
-
-        if self.publish_legacy_array and (self.gimbal_pub is not None):
-            m = Float64MultiArray(); m.data = [float(yaw_rate), float(pitch_rate)]
-            self.gimbal_pub.publish(m)
-        tw_cleaner = Twist()
-        tw_cleaner.angular.z = float(yaw_rate)
-        tw_cleaner.angular.y = float(pitch_rate)
-        self.cleaner_twist_pub.publish(tw_cleaner)
-
-        # 3) TF yaw_rel → 회전(PD)
+        # 2) TF yaw_rel → 회전(PD)
         ok_tf, yaw_rel, vxy = self._lookup_yaw_rel(log_period)
         if not ok_tf:
             t0 = Twist(); t0.linear.x = 0.0; t0.angular.z = 0.0
             self.cmd_pub.publish(t0)
-            return False, False, 999.0, 0.0, 0.0, yaw_rate, None, None
+            return False, False, 999.0, 0.0, 0.0, None, None
 
         now = time.time()
         dt = max(1e-3, now - self._prev_t)
@@ -587,7 +490,7 @@ class Tracker:
         self._prev_yaw = yaw_rel
         self._prev_t   = now
 
-        # 4) Depth ROI → 거리 유지(vx)
+        # 3) Depth ROI → 거리 유지(vx)
         follow_dist = float(cfg.get("follow_dist", 4.0))
         k_follow    = float(cfg.get("k_follow", 0.7)) #0.35
         vx_cap      = float(cfg.get("vx_cap", 2.0))
@@ -641,7 +544,7 @@ class Tracker:
         tw.angular.z = float(wz)
         self.cmd_pub.publish(tw)
 
-        return aligned, (abs(vx) > 0.0), yaw_err_deg, wz, vx, yaw_rate, range_m, dist_err
+        return aligned, (abs(vx) > 0.0), yaw_err_deg, wz, vx, range_m, dist_err
 
     # ----------- 스레드 메인 -----------
     def _thread_main(self):
@@ -669,7 +572,7 @@ class Tracker:
         freeze_dist_hold_on_none = bool(cfg.get("freeze_dist_hold_on_none", True))
 
         start_t = time.time()
-        yaw_hold  = 0.0   # 짐벌(각도) 조건 유지
+        yaw_hold  = 0.0   # 정렬 조건 유지
         dist_hold = 0.0   # 거리 조건 유지
         both_hold = 0.0   # 동시 조건 유지
         last_log_t = 0.0
@@ -680,20 +583,13 @@ class Tracker:
         self._dyaw_lpf = 0.0
         self._last_log = 0.0
 
-        self._yaw_i = 0.0
-        self._yaw_prev_err = 0.0
-        self._yaw_d_lpf = 0.0
-        self._yaw_cmd_prev = 0.0
-        self._prev_cam_t = time.time()
-        self._last_target_id_for_i = None
-
         try:
             while not self._cancel_event.wait(dt_loop):
                 with self._status_lock:
                     cfg = dict(self._cfg_params)
                     rules = dict(self._cfg_rules)
 
-                aligned, moved, yaw_err_deg, wz, vx, yaw_rate, range_m, dist_err = self._control_step(cfg)
+                aligned, moved, yaw_err_deg, wz, vx, range_m, dist_err = self._control_step(cfg)
 
                 # in-yaw / in-dist 판정
                 in_yaw  = (yaw_err_deg <= success_yaw_deg)
@@ -747,7 +643,6 @@ class Tracker:
                         range_m=range_m, err=(None if range_m is None else range_m - float(cfg.get("follow_dist", 4.0))),
                         aligned=(yaw_err_deg <= float(cfg.get("yaw_deadband_enter_deg", 4.0))),
                         yaw_deadband_enter_deg=float(cfg.get("yaw_deadband_enter_deg", 4.0)),
-                        yaw_rate=yaw_rate, pitch_rate=0.0  # pitch 로그 필요시 추가
                     )
                     self._log_success_window(
                         in_yaw=in_yaw, in_dist=in_dist,
@@ -761,14 +656,14 @@ class Tracker:
                     # 원샷(한 번만)로 하고 싶으면:
                     if not self._align_success_logged and bool(cfg.get("log_align_success_once", True)):
                         self._log_result("SUCCESS",
-                                        f"Gimbal aligned ≤{float(cfg.get('yaw_deadband_enter_deg',4.0)):.1f}° for {dwell_sec:.2f}s")
+                                        f"Aligned ≤{float(cfg.get('yaw_deadband_enter_deg',4.0)):.1f}° for {dwell_sec:.2f}s")
                         self._align_success_logged = True
 
                     # 혹은 쿨다운 방식(예: 3초마다 한 번만 찍기)
                     cd = float(cfg.get("align_success_log_cooldown_sec", 0.0))  # 기본 0=미사용
                     if cd > 0.0 and now >= self._align_success_cooldown_until:
                         self._log_result("SUCCESS",
-                                        f"Gimbal aligned ≤{float(cfg.get('yaw_deadband_enter_deg',4.0)):.1f}° for {dwell_sec:.2f}s")
+                                        f"Aligned ≤{float(cfg.get('yaw_deadband_enter_deg',4.0)):.1f}° for {dwell_sec:.2f}s")
                         self._align_success_cooldown_until = now + cd
 
                 # 초기 성공(정렬+거리) 1회 트리거
@@ -813,13 +708,6 @@ class Tracker:
         self._dyaw_lpf = 0.0
         self._last_log = 0.0
 
-        self._yaw_i = 0.0
-        self._yaw_prev_err = 0.0
-        self._yaw_d_lpf = 0.0
-        self._yaw_cmd_prev = 0.0
-        self._prev_cam_t = time.time()
-        self._last_target_id_for_i = None
-
         try:
             while True:
                 if self._cancel_event.wait(dt_loop):
@@ -828,7 +716,7 @@ class Tracker:
                     self._log_result("CANCELED", "User requested cancel")
                     return False
 
-                aligned, moved, yaw_err_deg, wz, vx, yaw_rate, range_m, dist_err = self._control_step(cfg)
+                aligned, moved, yaw_err_deg, wz, vx, range_m, dist_err = self._control_step(cfg)
 
                 now = time.time()
                 if now - last_log_t > log_period:
@@ -839,7 +727,6 @@ class Tracker:
                         range_m=range_m, err=dist_err,
                         aligned=(yaw_err_deg <= float(cfg.get("yaw_deadband_enter_deg", 4.0))),
                         yaw_deadband_enter_deg=float(cfg.get("yaw_deadband_enter_deg", 4.0)),
-                        yaw_rate=yaw_rate, pitch_rate=0.0
                     )
                     last_log_t = now
 

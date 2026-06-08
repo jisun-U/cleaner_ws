@@ -8,7 +8,7 @@ import cv2  # ★ GUI 갱신용 추가
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from cleaner_msgs.msg import PlanCommand, ReplanRequest, AtsState
+from cleaner_msgs.msg import PlanCommand, ReplanRequest, CleanerState
 from sensor_msgs.msg import CompressedImage
 
 from .models import System1State

@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float64MultiArray, String
+from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from tf2_ros import Buffer
 
@@ -97,16 +97,13 @@ def exec_scan(
     sweep_deg: float,
     yaw_rate_dps: float,
     *,
-    pitch_deg_up: float = 0.0,
-    pitch_deg_down: float = 0.0,
     duration_sec: float = 20.0,
     watch_classes: Optional[List[Any]] = None,
     watch_ids: Optional[List[Any]] = None,
     report_on_found: bool = True,
-    tf_base_frame: str = "body",
-    tf_camera_frame: str = "Camera",
+    tf_base_frame: str = "base_link",
+    tf_camera_frame: str = "Camera_OmniVision_OV9782_Color",
     camera_forward_axis: str = "z",
-    gimbal_yaw_sign: float = -1.0,
     vision_topic: str = "/vision_context_raw",
     report_topic: str = "/scan_report",
 
@@ -140,26 +137,20 @@ def exec_scan(
         return False
 
     # 퍼블리셔/구독자
-    gimbal_pub = getattr(node, "pub_gimbal", None)
-    cleaner_twist_pub = getattr(node, "create_publisher")(Twist, "/cleaner_twist", 10)
     report_pub = getattr(node, "create_publisher")(String, report_topic, 10)
     vision = VisionCache(node, vision_topic)
     snapshot_req_pub = node.create_publisher(String, '/vision/snapshot_req', 10)
 
     # 유틸
-    def publish_gimbal(yaw_rate: float, pitch_rate: float):
-        yaw_rate = float(gimbal_yaw_sign) * float(yaw_rate)
-        if gimbal_pub is not None:
-            m = Float64MultiArray(); m.data = [float(yaw_rate), float(pitch_rate)]
-            gimbal_pub.publish(m)
+    def publish_scan_cmd(yaw_rate: float):
         tw = Twist()
+        tw.linear.x = 0.0
         tw.angular.z = float(yaw_rate)
-        tw.angular.y = float(pitch_rate)
-        cleaner_twist_pub.publish(tw)
+        cmd_pub.publish(tw)
 
     def stop_all():
         try:
-            publish_gimbal(0.0, 0.0)
+            publish_scan_cmd(0.0)
             t = Twist(); t.linear.x = 0.0; t.angular.z = 0.0
             cmd_pub.publish(t)
         except Exception:
@@ -253,7 +244,7 @@ def exec_scan(
             yaw_rate_cmd = _clamp(yaw_rate_cmd, prev_cmd - max_step, prev_cmd + max_step)
             yaw_rate_cmd = _clamp(yaw_rate_cmd, -align_rate_max, +align_rate_max)
 
-            publish_gimbal(yaw_rate_cmd, 0.0)
+            publish_scan_cmd(yaw_rate_cmd)
 
             # hold 판정
             if abs(err) <= deadband:
@@ -276,14 +267,13 @@ def exec_scan(
             prev_cmd = yaw_rate_cmd
             time.sleep(dt)
 
-        publish_gimbal(0.0, 0.0)
+        publish_scan_cmd(0.0)
         time.sleep(0.05)
 
         # ───────── SWEEP: ±sweep/2 왕복 ─────────
         k_yaw    = 1.5
         eps_edge = math.radians(1.5)
         target_yaw = -half_span
-        pitch_dir  = +1.0
 
         while rclpy.ok():
             now = time.time()
@@ -297,17 +287,13 @@ def exec_scan(
 
             # 경계 반전
             if abs((-half_span) - yaw_rel) <= eps_edge:
-                target_yaw = +half_span; pitch_dir *= -1.0
+                target_yaw = +half_span
             elif abs((+half_span) - yaw_rel) <= eps_edge:
-                target_yaw = -half_span; pitch_dir *= -1.0
+                target_yaw = -half_span
 
             yaw_err = target_yaw - yaw_rel
             yaw_rate_cmd = _clamp(k_yaw * yaw_err, -yaw_rate_max, +yaw_rate_max)
-
-            pitch_speed = yaw_rate_max * 0.2
-            pitch_rate_cmd = pitch_speed * pitch_dir
-
-            publish_gimbal(yaw_rate_cmd, pitch_rate_cmd)
+            publish_scan_cmd(yaw_rate_cmd)
 
             # 비전 확인
             snap = vision.snapshot()
