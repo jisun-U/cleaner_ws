@@ -5,7 +5,7 @@
       io_method: "mmap"
       frame_id: "camera"
       pixel_format: "mjpeg2rgb" # mjpeg 지원하는걸 확인했으니 수정할 필요 x
-       # see usb_cam/supported_formats for list of supported formats
+       # see usb_cam/supported_formcleaner for list of supported formcleaner
       av_device_format: "YUV422P"
       image_width: 640
       image_height: 480

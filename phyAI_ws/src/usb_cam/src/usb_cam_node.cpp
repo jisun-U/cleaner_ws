@@ -389,7 +389,7 @@ bool UsbCamNode::take_and_send_image()
     m_image_msg->encoding = m_camera->get_pixel_format()->ros();
     m_image_msg->step = m_camera->get_image_step();
     if (m_image_msg->step == 0) {
-      // Some formats don't have a linesize specified by v4l2
+      // Some formcleaner don't have a linesize specified by v4l2
       // Fall back to manually calculating it step = size / height
       m_image_msg->step = m_camera->get_image_size_in_bytes() / m_image_msg->height;
     }

@@ -1,0 +1,26 @@
+running egg_info
+writing ../../build/cleaner_system1/cleaner_system1.egg-info/PKG-INFO
+writing dependency_links to ../../build/cleaner_system1/cleaner_system1.egg-info/dependency_links.txt
+writing entry points to ../../build/cleaner_system1/cleaner_system1.egg-info/entry_points.txt
+writing requirements to ../../build/cleaner_system1/cleaner_system1.egg-info/requires.txt
+writing top-level names to ../../build/cleaner_system1/cleaner_system1.egg-info/top_level.txt
+reading manifest file '../../build/cleaner_system1/cleaner_system1.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/cleaner_system1/cleaner_system1.egg-info/SOURCES.txt'
+running build
+running build_py
+copying cleaner_system1/actions/scan.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+copying cleaner_system1/nodes/ExecutorNode.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes
+running install
+running install_lib
+copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/scan.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes/ExecutorNode.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes
+byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/scan.py to scan.cpython-310.pyc
+byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes/ExecutorNode.py to ExecutorNode.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/cleaner_system1/cleaner_system1.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1-0.0.0-py3.10.egg-info
+running install_scripts
+Installing system1_executor script to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/cleaner_system1
+writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log'

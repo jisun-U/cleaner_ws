@@ -32,7 +32,7 @@
 #include <string>
 
 #include "usb_cam/utils.hpp"
-#include "usb_cam/formats/utils.hpp"
+#include "usb_cam/formcleaner/utils.hpp"
 
 
 using usb_cam::utils::io_method_from_string;
@@ -57,21 +57,21 @@ TEST(test_usb_cam_utils, test_io_method_from_string) {
 TEST(test_usb_cam_utils, test_clip_value) {
   // Clip values to 0 if -128<=val<0
   for (int i = -128; i < 0; i++) {
-    EXPECT_EQ(0, usb_cam::formats::CLIPVALUE(i));
+    EXPECT_EQ(0, usb_cam::formcleaner::CLIPVALUE(i));
   }
   // Do not clip values between 0<val<255
   // Just return the value as unsigned char
   for (int i = 0; i < 255; i++) {
-    EXPECT_EQ(i, usb_cam::formats::CLIPVALUE(i));
+    EXPECT_EQ(i, usb_cam::formcleaner::CLIPVALUE(i));
   }
   // Clip values to 255 if 255<=val<=383
   for (int i = 255; i <= 383; i++) {
-    EXPECT_EQ(255, usb_cam::formats::CLIPVALUE(i));
+    EXPECT_EQ(255, usb_cam::formcleaner::CLIPVALUE(i));
   }
   // Test outlier cases val < -128 and val > 383
   // these will use the old method (non-array method)
-  EXPECT_EQ(0, usb_cam::formats::CLIPVALUE(-129));
-  EXPECT_EQ(255, usb_cam::formats::CLIPVALUE(400));
+  EXPECT_EQ(0, usb_cam::formcleaner::CLIPVALUE(-129));
+  EXPECT_EQ(255, usb_cam::formcleaner::CLIPVALUE(400));
 }
 
 TEST(test_usb_cam_utils, test_monotonic_to_real_time) {

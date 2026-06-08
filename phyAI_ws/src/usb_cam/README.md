@@ -88,16 +88,16 @@ ros2 run usb_cam usb_cam_node_exe --ros-args --remap __ns:=/usb_cam_0 --params-f
 ros2 run usb_cam usb_cam_node_exe --ros-args --remap __ns:=/usb_cam_1 --params-file /path/to/usb_cam/config/params_1.yaml
 ```
 
-## Supported formats
+## Supported formcleaner
 
-### Device supported formats
+### Device supported formcleaner
 
-To see a connected devices supported formats, run the `usb_cam_node` and observe the console output.
+To see a connected devices supported formcleaner, run the `usb_cam_node` and observe the console output.
 
 An example output is:
 
 ```log
-This devices supproted formats:
+This devices supproted formcleaner:
        Motion-JPEG: 1280 x 720 (30 Hz)
        Motion-JPEG: 960 x 540 (30 Hz)
        Motion-JPEG: 848 x 480 (30 Hz)
@@ -112,15 +112,15 @@ This devices supproted formats:
        YUYV 4:2:2: 160 x 120 (30 Hz)
 ```
 
-### Driver supported formats
+### Driver supported formcleaner
 
-The driver has its own supported formats. See [the source code](include/usb_cam/formats/)
+The driver has its own supported formcleaner. See [the source code](include/usb_cam/formcleaner/)
 for details.
 
-After observing [the devices supported formats](#device-supported-formats), specify which
+After observing [the devices supported formcleaner](#device-supported-formcleaner), specify which
 format to use via [the parameters file](config/params.yaml) with the `pixel_format` parameter.
 
-To see a list of all currently supported driver formats, run the following command:
+To see a list of all currently supported driver formcleaner, run the following command:
 
 ```shell
 ros2 run usb_cam usb_cam_node_exe --ros-args -p pixel_format:="test"
@@ -129,7 +129,7 @@ ros2 run usb_cam usb_cam_node_exe --ros-args -p pixel_format:="test"
 Note: "test" here could be replaced with any non-supported pixel format string. The driver
 will detect if the given pixel format is supported or not.
 
-More formats and conversions can be added, contributions welcome!
+More formcleaner and conversions can be added, contributions welcome!
 
 ### Supported IO methods
 

@@ -39,41 +39,41 @@
 #include <vector>
 
 #include "usb_cam/utils.hpp"
-#include "usb_cam/formats/pixel_format_base.hpp"
-#include "usb_cam/formats/av_pixel_format_helper.hpp"
+#include "usb_cam/formcleaner/pixel_format_base.hpp"
+#include "usb_cam/formcleaner/av_pixel_format_helper.hpp"
 
-#include "usb_cam/formats/mjpeg.hpp"
-#include "usb_cam/formats/mono.hpp"
-#include "usb_cam/formats/rgb.hpp"
-#include "usb_cam/formats/uyvy.hpp"
-#include "usb_cam/formats/yuyv.hpp"
-#include "usb_cam/formats/m420.hpp"
+#include "usb_cam/formcleaner/mjpeg.hpp"
+#include "usb_cam/formcleaner/mono.hpp"
+#include "usb_cam/formcleaner/rgb.hpp"
+#include "usb_cam/formcleaner/uyvy.hpp"
+#include "usb_cam/formcleaner/yuyv.hpp"
+#include "usb_cam/formcleaner/m420.hpp"
 
 
 namespace usb_cam
 {
 
 using usb_cam::utils::io_method_t;
-using usb_cam::formats::pixel_format_base;
+using usb_cam::formcleaner::pixel_format_base;
 
-/// @brief Add more formats here and to driver_supported_formats below as
+/// @brief Add more formcleaner here and to driver_supported_formcleaner below as
 /// they are added to this library
-using usb_cam::formats::RGB8;
-using usb_cam::formats::YUYV;
-using usb_cam::formats::YUYV2RGB;
-using usb_cam::formats::UYVY;
-using usb_cam::formats::UYVY2RGB;
-using usb_cam::formats::MONO8;
-using usb_cam::formats::MONO16;
-using usb_cam::formats::Y102MONO8;
-using usb_cam::formats::RAW_MJPEG;
-using usb_cam::formats::MJPEG2RGB;
-using usb_cam::formats::M4202RGB;
+using usb_cam::formcleaner::RGB8;
+using usb_cam::formcleaner::YUYV;
+using usb_cam::formcleaner::YUYV2RGB;
+using usb_cam::formcleaner::UYVY;
+using usb_cam::formcleaner::UYVY2RGB;
+using usb_cam::formcleaner::MONO8;
+using usb_cam::formcleaner::MONO16;
+using usb_cam::formcleaner::Y102MONO8;
+using usb_cam::formcleaner::RAW_MJPEG;
+using usb_cam::formcleaner::MJPEG2RGB;
+using usb_cam::formcleaner::M4202RGB;
 
 
-/// @brief list all supported formats that this driver supports
-std::vector<std::shared_ptr<pixel_format_base>> driver_supported_formats(
-  const formats::format_arguments_t & args = formats::format_arguments_t())
+/// @brief list all supported formcleaner that this driver supports
+std::vector<std::shared_ptr<pixel_format_base>> driver_supported_formcleaner(
+  const formcleaner::format_arguments_t & args = formcleaner::format_arguments_t())
 {
   std::vector<std::shared_ptr<pixel_format_base>> fmts = {
     std::make_shared<RGB8>(args),
@@ -214,7 +214,7 @@ public:
   /// in an image pointer to fill in
   void get_image(char * destination);
 
-  std::vector<capture_format_t> get_supported_formats();
+  std::vector<capture_format_t> get_supported_formcleaner();
 
   // enables/disable auto focus
   bool set_auto_focus(int value);
@@ -303,36 +303,36 @@ public:
     return m_epoch_time_shift_us;
   }
 
-  inline std::vector<capture_format_t> supported_formats()
+  inline std::vector<capture_format_t> supported_formcleaner()
   {
-    if (m_supported_formats.size() == 0) {
-      this->get_supported_formats();
+    if (m_supported_formcleaner.size() == 0) {
+      this->get_supported_formcleaner();
     }
 
-    return m_supported_formats;
+    return m_supported_formcleaner;
   }
 
   /// @brief Check if the given format is supported by this device
   /// If it is supported, set the m_pixel_format variable to it.
   /// @param format the format to check if it is supported
   /// @return bool true if the given format is supported, false otherwise
-  inline bool set_pixel_format(const formats::format_arguments_t & args)
+  inline bool set_pixel_format(const formcleaner::format_arguments_t & args)
   {
     bool result = false;
 
     std::shared_ptr<pixel_format_base> found_driver_format = nullptr;
 
     // First check if given format is supported by this driver
-    for (auto driver_fmt : driver_supported_formats(args)) {
+    for (auto driver_fmt : driver_supported_formcleaner(args)) {
       if (driver_fmt->name() == args.name) {
         found_driver_format = driver_fmt;
       }
     }
 
     if (found_driver_format == nullptr) {
-      // List the supported formats of this driver for the user before throwing
-      std::cerr << "This driver supports the following formats:" << std::endl;
-      for (auto driver_fmt : driver_supported_formats(args)) {
+      // List the supported formcleaner of this driver for the user before throwing
+      std::cerr << "This driver supports the following formcleaner:" << std::endl;
+      for (auto driver_fmt : driver_supported_formcleaner(args)) {
         std::cerr << "\t" << driver_fmt->name() << std::endl;
       }
       throw std::invalid_argument(
@@ -340,9 +340,9 @@ public:
       );
     }
 
-    std::cout << "This device supports the following formats:" << std::endl;
-    for (auto fmt : this->supported_formats()) {
-      // Always list the devices supported formats for the user
+    std::cout << "This device supports the following formcleaner:" << std::endl;
+    for (auto fmt : this->supported_formcleaner()) {
+      // Always list the devices supported formcleaner for the user
       std::cout << "\t" << fmt.format.description << " ";
       std::cout << fmt.v4l2_fmt.width << " x " << fmt.v4l2_fmt.height << " (";
       std::cout << fmt.v4l2_fmt.discrete.denominator / fmt.v4l2_fmt.discrete.numerator << " Hz)";
@@ -365,7 +365,7 @@ public:
   inline std::shared_ptr<pixel_format_base> set_pixel_format(const parameters_t & parameters)
   {
     // create format arguments structure
-    formats::format_arguments_t format_args({
+    formcleaner::format_arguments_t format_args({
         parameters.pixel_format_name,
         parameters.image_width,
         parameters.image_height,
@@ -388,7 +388,7 @@ public:
   {
     std::shared_ptr<pixel_format_base> found_driver_format = nullptr;
 
-    formats::format_arguments_t args({
+    formcleaner::format_arguments_t args({
         parameters.pixel_format_name,
         parameters.image_width,
         parameters.image_height,
@@ -396,16 +396,16 @@ public:
         parameters.av_device_format,
       });
     // First check if given format is supported by this driver
-    for (auto driver_fmt : driver_supported_formats(args)) {
+    for (auto driver_fmt : driver_supported_formcleaner(args)) {
       if (driver_fmt->name() == args.name) {
         found_driver_format = driver_fmt;
       }
     }
 
     if (found_driver_format == nullptr) {
-      // List the supported formats of this driver for the user before throwing
-      std::cerr << "This driver supports the following formats:" << std::endl;
-      for (auto driver_fmt : driver_supported_formats(args)) {
+      // List the supported formcleaner of this driver for the user before throwing
+      std::cerr << "This driver supports the following formcleaner:" << std::endl;
+      for (auto driver_fmt : driver_supported_formcleaner(args)) {
         std::cerr << "\t" << driver_fmt->name() << std::endl;
       }
       throw std::invalid_argument(
@@ -413,7 +413,7 @@ public:
       );
     }
 
-    for (auto fmt : this->supported_formats()) {
+    for (auto fmt : this->supported_formcleaner()) {
       if (fmt.v4l2_fmt.width == static_cast<size_t>(parameters.image_width) &&
         fmt.v4l2_fmt.height == static_cast<size_t>(parameters.image_height) &&
         fmt.v4l2_fmt.pixel_format == found_driver_format->v4l2()) {
@@ -452,7 +452,7 @@ private:
   bool m_is_capturing;
   int m_framerate;
   const time_t m_epoch_time_shift_us;
-  std::vector<capture_format_t> m_supported_formats;
+  std::vector<capture_format_t> m_supported_formcleaner;
 };
 
 }  // namespace usb_cam

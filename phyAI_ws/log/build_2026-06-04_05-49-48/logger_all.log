@@ -1,0 +1,560 @@
+[0.255s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.255s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x735726892320>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7357269939d0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7357269939d0>>, mixin_verb=('build',))
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.687s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/sunny/cleaner_ws/phyAI_ws'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['ignore', 'ignore_ament_install']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'ignore'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'ignore_ament_install'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['colcon_pkg']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'colcon_pkg'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['colcon_meta']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'colcon_meta'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['ros']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'ros'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['cmake', 'python']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'cmake'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'python'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extensions ['python_setup_py']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(map) by extension 'python_setup_py'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extension 'ignore_ament_install'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extensions ['colcon_pkg']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extension 'colcon_pkg'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extensions ['colcon_meta']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extension 'colcon_meta'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extensions ['ros']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_msgs) by extension 'ros'
+[0.726s] DEBUG:colcon.colcon_core.package_identification:Package 'src/cleaner_msgs' with type 'ros.ament_cmake' and name 'cleaner_msgs'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extensions ['ignore', 'ignore_ament_install']
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extension 'ignore'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extension 'ignore_ament_install'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extensions ['colcon_pkg']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extension 'colcon_pkg'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extensions ['colcon_meta']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extension 'colcon_meta'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extensions ['ros']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system1) by extension 'ros'
+[0.729s] DEBUG:colcon.colcon_core.package_identification:Package 'src/cleaner_system1' with type 'ros.ament_python' and name 'cleaner_system1'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extensions ['ignore', 'ignore_ament_install']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extension 'ignore'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extension 'ignore_ament_install'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extensions ['colcon_pkg']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extension 'colcon_pkg'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extensions ['colcon_meta']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extension 'colcon_meta'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extensions ['ros']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/cleaner_system2) by extension 'ros'
+[0.731s] DEBUG:colcon.colcon_core.package_identification:Package 'src/cleaner_system2' with type 'ros.ament_python' and name 'cleaner_system2'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extensions ['ignore', 'ignore_ament_install']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extension 'ignore'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extension 'ignore_ament_install'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extensions ['colcon_pkg']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extension 'colcon_pkg'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extensions ['colcon_meta']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extension 'colcon_meta'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extensions ['ros']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(src/gptapi) by extension 'ros'
+[0.733s] DEBUG:colcon.colcon_core.package_identification:Package 'src/gptapi' with type 'ros.ament_python' and name 'gptapi'
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extensions ['ignore', 'ignore_ament_install']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extension 'ignore'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extension 'ignore_ament_install'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extensions ['colcon_pkg']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extension 'colcon_pkg'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extensions ['colcon_meta']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extension 'colcon_meta'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extensions ['ros']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_context_builder) by extension 'ros'
+[0.735s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vision_context_builder' with type 'ros.ament_python' and name 'vision_context_builder'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'ignore'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'ignore_ament_install'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['colcon_pkg']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'colcon_pkg'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['colcon_meta']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'colcon_meta'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['ros']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'ros'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['cmake', 'python']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'cmake'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'python'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extensions ['python_setup_py']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros) by extension 'python_setup_py'
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extension 'ignore'
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extension 'ignore_ament_install'
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extensions ['colcon_pkg']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extension 'colcon_pkg'
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extensions ['colcon_meta']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extension 'colcon_meta'
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extensions ['ros']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_bringup) by extension 'ros'
+[0.742s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolov8_ros/yolov8_bringup' with type 'ros.ament_cmake' and name 'yolov8_bringup'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extension 'ignore'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extension 'ignore_ament_install'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extensions ['colcon_pkg']
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extension 'colcon_pkg'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extensions ['colcon_meta']
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extension 'colcon_meta'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extensions ['ros']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_msgs) by extension 'ros'
+[0.745s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolov8_ros/yolov8_msgs' with type 'ros.ament_cmake' and name 'yolov8_msgs'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extension 'ignore'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extension 'ignore_ament_install'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extensions ['colcon_pkg']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extension 'colcon_pkg'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extensions ['colcon_meta']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extension 'colcon_meta'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extensions ['ros']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/yolov8_ros/yolov8_ros) by extension 'ros'
+[0.748s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yolov8_ros/yolov8_ros' with type 'ros.ament_python' and name 'yolov8_ros'
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.749s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.749s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.749s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.792s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.793s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.802s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 451 installed packages in /opt/ros/humble
+[0.810s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.911s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_args' from command line to 'None'
+[0.911s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_target' from command line to 'None'
+[0.911s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.912s] Level 5:colcon.colcon_core.verb:set package 'cleaner_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.912s] DEBUG:colcon.colcon_core.verb:Building package 'cleaner_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_args' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_target' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_clean_cache' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_clean_first' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'cmake_force_configure' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'ament_cmake_args' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'catkin_cmake_args' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'gptapi' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.913s] DEBUG:colcon.colcon_core.verb:Building package 'gptapi' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/gptapi', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/gptapi', 'symlink_install': False, 'test_result_base': None}
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_args' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_target' from command line to 'None'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_clean_cache' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_clean_first' from command line to 'False'
+[0.913s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'cmake_force_configure' from command line to 'False'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'ament_cmake_args' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'catkin_cmake_args' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'vision_context_builder' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.914s] DEBUG:colcon.colcon_core.verb:Building package 'vision_context_builder' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder', 'symlink_install': False, 'test_result_base': None}
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_args' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_target' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.914s] Level 5:colcon.colcon_core.verb:set package 'yolov8_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.914s] DEBUG:colcon.colcon_core.verb:Building package 'yolov8_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_args' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_target' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_clean_first' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'cmake_force_configure' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'ament_cmake_args' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'yolov8_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.915s] DEBUG:colcon.colcon_core.verb:Building package 'yolov8_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros', 'symlink_install': False, 'test_result_base': None}
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_args' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_target' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_clean_cache' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_clean_first' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'cmake_force_configure' from command line to 'False'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'ament_cmake_args' from command line to 'None'
+[0.915s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'catkin_cmake_args' from command line to 'None'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system1' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.916s] DEBUG:colcon.colcon_core.verb:Building package 'cleaner_system1' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1', 'symlink_install': False, 'test_result_base': None}
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_args' from command line to 'None'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_target' from command line to 'None'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_clean_first' from command line to 'False'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'cmake_force_configure' from command line to 'False'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'ament_cmake_args' from command line to 'None'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.916s] Level 5:colcon.colcon_core.verb:set package 'cleaner_system2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.916s] DEBUG:colcon.colcon_core.verb:Building package 'cleaner_system2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2', 'symlink_install': False, 'test_result_base': None}
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_args' from command line to 'None'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_target' from command line to 'None'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.917s] Level 5:colcon.colcon_core.verb:set package 'yolov8_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.917s] DEBUG:colcon.colcon_core.verb:Building package 'yolov8_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup', 'merge_install': False, 'path': '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.917s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.919s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.920s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs' with build type 'ament_cmake'
+[0.920s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs'
+[0.924s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.925s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.925s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.932s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros' with build type 'ament_python'
+[0.933s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_ros', 'ament_prefix_path')
+[0.933s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/ament_prefix_path.ps1'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/ament_prefix_path.dsv'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/ament_prefix_path.sh'
+[0.937s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.937s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.943s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/gptapi' with build type 'ament_python'
+[0.943s] Level 1:colcon.colcon_core.shell:create_environment_hook('gptapi', 'ament_prefix_path')
+[0.944s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/ament_prefix_path.ps1'
+[0.945s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/ament_prefix_path.dsv'
+[0.945s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/ament_prefix_path.sh'
+[0.947s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.947s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.953s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder' with build type 'ament_python'
+[0.953s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_context_builder', 'ament_prefix_path')
+[0.954s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/ament_prefix_path.ps1'
+[0.955s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/ament_prefix_path.dsv'
+[0.955s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/ament_prefix_path.sh'
+[0.957s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.957s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.965s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_msgs' with build type 'ament_cmake'
+[0.966s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_msgs'
+[0.967s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.967s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.991s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs -- -j16 -l16
+[1.662s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros'
+[1.664s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.664s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.131s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sunny/cleaner_ws/phyAI_ws/src/gptapi'
+[2.132s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.132s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.819s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder'
+[2.820s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.820s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.833s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs -- -j16 -l16
+[2.833s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs -- -j16 -l16
+[2.851s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs
+[2.968s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cleaner_msgs)
+[2.973s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs' for CMake module files
+[2.977s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs' for CMake config files
+[2.976s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs
+[2.978s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_msgs', 'cmake_prefix_path')
+[2.979s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.ps1'
+[2.980s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.dsv'
+[2.981s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.sh'
+[2.982s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib'
+[2.982s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_msgs', 'ld_library_path_lib')
+[2.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.ps1'
+[2.983s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.dsv'
+[2.984s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.sh'
+[2.984s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/bin'
+[2.984s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib/pkgconfig/cleaner_msgs.pc'
+[2.985s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib/python3.10/site-packages'
+[2.986s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/bin'
+[2.986s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.ps1'
+[2.988s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.dsv'
+[2.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.sh'
+[2.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.bash'
+[2.991s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.zsh'
+[2.992s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/colcon-core/packages/cleaner_msgs)
+[2.993s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cleaner_msgs)
+[2.994s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs' for CMake module files
+[2.995s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs' for CMake config files
+[2.995s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_msgs', 'cmake_prefix_path')
+[2.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.ps1'
+[2.997s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.dsv'
+[2.997s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/cmake_prefix_path.sh'
+[2.998s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib'
+[2.998s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_msgs', 'ld_library_path_lib')
+[2.999s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.ps1'
+[3.000s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.dsv'
+[3.001s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/hook/ld_library_path_lib.sh'
+[3.001s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/bin'
+[3.001s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib/pkgconfig/cleaner_msgs.pc'
+[3.001s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib/python3.10/site-packages'
+[3.002s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/bin'
+[3.002s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.ps1'
+[3.003s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.dsv'
+[3.003s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.sh'
+[3.004s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.bash'
+[3.005s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/cleaner_msgs/package.zsh'
+[3.005s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/share/colcon-core/packages/cleaner_msgs)
+[3.006s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1' with build type 'ament_python'
+[3.006s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_system1', 'ament_prefix_path')
+[3.007s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/ament_prefix_path.ps1'
+[3.008s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/ament_prefix_path.dsv'
+[3.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/ament_prefix_path.sh'
+[3.010s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.010s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.016s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2' with build type 'ament_python'
+[3.017s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_system2', 'ament_prefix_path')
+[3.018s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/ament_prefix_path.ps1'
+[3.019s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/ament_prefix_path.dsv'
+[3.019s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/ament_prefix_path.sh'
+[3.020s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.020s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.516s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1'
+[3.517s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.517s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.231s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2'
+[4.232s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.232s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.250s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/gptapi': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/gptapi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gptapi build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/install.log --single-version-externally-managed install_data
+[4.251s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs -- -j16 -l16
+[4.254s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs
+[4.273s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[4.282s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_context_builder build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/install.log --single-version-externally-managed install_data
+[4.408s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(yolov8_msgs)
+[4.409s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs' for CMake module files
+[4.409s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs
+[4.410s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs' for CMake config files
+[4.411s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_msgs', 'cmake_prefix_path')
+[4.412s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.ps1'
+[4.413s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.dsv'
+[4.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.sh'
+[4.414s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib'
+[4.414s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_msgs', 'ld_library_path_lib')
+[4.414s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.ps1'
+[4.414s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.dsv'
+[4.415s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.sh'
+[4.415s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/bin'
+[4.415s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib/pkgconfig/yolov8_msgs.pc'
+[4.416s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib/python3.10/site-packages'
+[4.416s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/bin'
+[4.416s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.ps1'
+[4.417s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.dsv'
+[4.417s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.sh'
+[4.418s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.bash'
+[4.418s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.zsh'
+[4.418s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/colcon-core/packages/yolov8_msgs)
+[4.419s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(yolov8_msgs)
+[4.420s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs' for CMake module files
+[4.420s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs' for CMake config files
+[4.421s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_msgs', 'cmake_prefix_path')
+[4.421s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.ps1'
+[4.422s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.dsv'
+[4.422s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/cmake_prefix_path.sh'
+[4.423s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib'
+[4.423s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_msgs', 'ld_library_path_lib')
+[4.423s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.ps1'
+[4.424s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.dsv'
+[4.424s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/hook/ld_library_path_lib.sh'
+[4.424s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/bin'
+[4.424s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib/pkgconfig/yolov8_msgs.pc'
+[4.425s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/lib/python3.10/site-packages'
+[4.425s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/bin'
+[4.426s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.ps1'
+[4.426s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.dsv'
+[4.427s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.sh'
+[4.427s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.bash'
+[4.428s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/yolov8_msgs/package.zsh'
+[4.428s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs/share/colcon-core/packages/yolov8_msgs)
+[4.785s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi' for CMake module files
+[4.786s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/gptapi' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/gptapi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gptapi build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/install.log --single-version-externally-managed install_data
+[4.787s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi' for CMake config files
+[4.787s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib'
+[4.787s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/bin'
+[4.787s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/pkgconfig/gptapi.pc'
+[4.788s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages'
+[4.788s] Level 1:colcon.colcon_core.shell:create_environment_hook('gptapi', 'pythonpath')
+[4.789s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/pythonpath.ps1'
+[4.789s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/pythonpath.dsv'
+[4.790s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/hook/pythonpath.sh'
+[4.791s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/bin'
+[4.791s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gptapi)
+[4.792s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/package.ps1'
+[4.792s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/package.dsv'
+[4.793s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/package.sh'
+[4.793s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/package.bash'
+[4.794s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi/package.zsh'
+[4.794s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/colcon-core/packages/gptapi)
+[4.798s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder' for CMake module files
+[4.798s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_context_builder build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/install.log --single-version-externally-managed install_data
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder' for CMake config files
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib'
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/bin'
+[4.800s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/pkgconfig/vision_context_builder.pc'
+[4.800s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages'
+[4.800s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_context_builder', 'pythonpath')
+[4.800s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/pythonpath.ps1'
+[4.801s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/pythonpath.dsv'
+[4.801s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/hook/pythonpath.sh'
+[4.802s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/bin'
+[4.802s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vision_context_builder)
+[4.803s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/package.ps1'
+[4.803s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/package.dsv'
+[4.804s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/package.sh'
+[4.804s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/package.bash'
+[4.805s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/vision_context_builder/package.zsh'
+[4.805s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/share/colcon-core/packages/vision_context_builder)
+[4.807s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros' for CMake module files
+[4.809s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[4.809s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros' for CMake config files
+[4.810s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib'
+[4.810s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/bin'
+[4.810s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/pkgconfig/yolov8_ros.pc'
+[4.811s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages'
+[4.811s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_ros', 'pythonpath')
+[4.812s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/pythonpath.ps1'
+[4.813s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/pythonpath.dsv'
+[4.814s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/hook/pythonpath.sh'
+[4.815s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/bin'
+[4.815s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(yolov8_ros)
+[4.816s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/package.ps1'
+[4.817s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/package.dsv'
+[4.818s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/package.sh'
+[4.818s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/package.bash'
+[4.819s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros/package.zsh'
+[4.819s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/colcon-core/packages/yolov8_ros)
+[4.820s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_bringup' with build type 'ament_cmake'
+[4.820s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_bringup'
+[4.821s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.821s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.838s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup -- -j16 -l16
+[4.878s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs LD_LIBRARY_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system1 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log --single-version-externally-managed install_data
+[4.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs LD_LIBRARY_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system2 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/install.log --single-version-externally-managed install_data
+[4.938s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup' returned '0': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup -- -j16 -l16
+[4.942s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup
+[4.968s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(yolov8_bringup)
+[4.969s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup' for CMake module files
+[4.970s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup' returned '0': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup
+[4.971s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup' for CMake config files
+[4.971s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_bringup', 'cmake_prefix_path')
+[4.972s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.ps1'
+[4.973s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.dsv'
+[4.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.sh'
+[4.974s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/bin'
+[4.975s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/lib/pkgconfig/yolov8_bringup.pc'
+[4.975s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/lib/python3.10/site-packages'
+[4.976s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/bin'
+[4.976s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.ps1'
+[4.977s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.dsv'
+[4.978s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.sh'
+[4.979s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.bash'
+[4.979s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.zsh'
+[4.980s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/colcon-core/packages/yolov8_bringup)
+[4.981s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(yolov8_bringup)
+[4.982s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup' for CMake module files
+[4.982s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup' for CMake config files
+[4.983s] Level 1:colcon.colcon_core.shell:create_environment_hook('yolov8_bringup', 'cmake_prefix_path')
+[4.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.ps1'
+[4.984s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.dsv'
+[4.985s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/hook/cmake_prefix_path.sh'
+[4.986s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/bin'
+[4.986s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/lib/pkgconfig/yolov8_bringup.pc'
+[4.987s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/lib/python3.10/site-packages'
+[4.987s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/bin'
+[4.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.ps1'
+[4.989s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.dsv'
+[4.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.sh'
+[4.991s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.bash'
+[4.992s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/yolov8_bringup/package.zsh'
+[4.993s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_bringup/share/colcon-core/packages/yolov8_bringup)
+[5.694s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1' for CMake module files
+[5.695s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1' returned '0': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs LD_LIBRARY_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system1 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log --single-version-externally-managed install_data
+[5.696s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1' for CMake config files
+[5.697s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib'
+[5.698s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/bin'
+[5.698s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/pkgconfig/cleaner_system1.pc'
+[5.698s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages'
+[5.698s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_system1', 'pythonpath')
+[5.699s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/pythonpath.ps1'
+[5.700s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/pythonpath.dsv'
+[5.701s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/hook/pythonpath.sh'
+[5.702s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/bin'
+[5.703s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cleaner_system1)
+[5.704s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/package.ps1'
+[5.705s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/package.dsv'
+[5.706s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/package.sh'
+[5.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/package.bash'
+[5.708s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1/package.zsh'
+[5.709s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/colcon-core/packages/cleaner_system1)
+[5.712s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2' for CMake module files
+[5.713s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2' returned '0': AMENT_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs LD_LIBRARY_PATH=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system2 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/install.log --single-version-externally-managed install_data
+[5.713s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2' for CMake config files
+[5.715s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib'
+[5.715s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/bin'
+[5.715s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/pkgconfig/cleaner_system2.pc'
+[5.716s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages'
+[5.716s] Level 1:colcon.colcon_core.shell:create_environment_hook('cleaner_system2', 'pythonpath')
+[5.716s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/pythonpath.ps1'
+[5.717s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/pythonpath.dsv'
+[5.718s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/hook/pythonpath.sh'
+[5.720s] Level 1:colcon.colcon_core.environment:checking '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/bin'
+[5.720s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cleaner_system2)
+[5.721s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/package.ps1'
+[5.722s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/package.dsv'
+[5.723s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/package.sh'
+[5.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/package.bash'
+[5.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/cleaner_system2/package.zsh'
+[5.726s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/share/colcon-core/packages/cleaner_system2)
+[5.726s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[5.727s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[5.727s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[5.727s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[5.740s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[5.740s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[5.740s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[5.760s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[5.761s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunny/cleaner_ws/phyAI_ws/install/local_setup.ps1'
+[5.764s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sunny/cleaner_ws/phyAI_ws/install/_local_setup_util_ps1.py'
+[5.767s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunny/cleaner_ws/phyAI_ws/install/setup.ps1'
+[5.770s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunny/cleaner_ws/phyAI_ws/install/local_setup.sh'
+[5.771s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sunny/cleaner_ws/phyAI_ws/install/_local_setup_util_sh.py'
+[5.772s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunny/cleaner_ws/phyAI_ws/install/setup.sh'
+[5.775s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunny/cleaner_ws/phyAI_ws/install/local_setup.bash'
+[5.776s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunny/cleaner_ws/phyAI_ws/install/setup.bash'
+[5.778s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunny/cleaner_ws/phyAI_ws/install/local_setup.zsh'
+[5.779s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunny/cleaner_ws/phyAI_ws/install/setup.zsh'

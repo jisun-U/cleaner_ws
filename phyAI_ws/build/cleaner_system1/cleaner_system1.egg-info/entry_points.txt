@@ -1,0 +1,3 @@
+[console_scripts]
+system1_executor = cleaner_system1.nodes.ExecutorNode:main
+

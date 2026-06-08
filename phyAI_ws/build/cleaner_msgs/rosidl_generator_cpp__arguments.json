@@ -1,0 +1,36 @@
+{
+  "package_name": "cleaner_msgs",
+  "output_dir": "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_generator_cpp/cleaner_msgs",
+  "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
+  "idl_tuples": [
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs:msg/CleanerState.idl",
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs:msg/PlanCommand.idl",
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs:msg/ReplanRequest.idl"
+  ],
+  "ros_interface_dependencies": [
+    "builtin_interfaces:/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
+    "builtin_interfaces:/opt/ros/humble/share/builtin_interfaces/msg/Time.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/action__builder.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/action__struct.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/action__traits.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/idl.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/idl__builder.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/idl__struct.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/idl__traits.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/msg__builder.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/msg__struct.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/msg__traits.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__builder.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
+    "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs/msg/CleanerState.idl",
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs/msg/PlanCommand.idl",
+    "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/rosidl_adapter/cleaner_msgs/msg/ReplanRequest.idl",
+    "/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
+    "/opt/ros/humble/share/builtin_interfaces/msg/Time.idl"
+  ]
+}

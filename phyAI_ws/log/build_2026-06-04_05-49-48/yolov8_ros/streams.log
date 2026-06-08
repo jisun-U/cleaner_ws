@@ -1,0 +1,24 @@
+[3.338s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[3.702s] running egg_info
+[3.703s] writing ../../../build/yolov8_ros/yolov8_ros.egg-info/PKG-INFO
+[3.703s] writing dependency_links to ../../../build/yolov8_ros/yolov8_ros.egg-info/dependency_links.txt
+[3.703s] writing entry points to ../../../build/yolov8_ros/yolov8_ros.egg-info/entry_points.txt
+[3.704s] writing requirements to ../../../build/yolov8_ros/yolov8_ros.egg-info/requires.txt
+[3.704s] writing top-level names to ../../../build/yolov8_ros/yolov8_ros.egg-info/top_level.txt
+[3.708s] reading manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[3.709s] writing manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[3.709s] running build
+[3.709s] running build_py
+[3.709s] running install
+[3.710s] running install_lib
+[3.712s] running install_data
+[3.712s] running install_egg_info
+[3.717s] removing '/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info' (and everything under it)
+[3.718s] Copying ../../../build/yolov8_ros/yolov8_ros.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info
+[3.719s] running install_scripts
+[3.750s] Installing debug_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[3.750s] Installing detect_3d_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[3.750s] Installing tracking_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[3.750s] Installing yolov8_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[3.751s] writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log'
+[3.876s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data

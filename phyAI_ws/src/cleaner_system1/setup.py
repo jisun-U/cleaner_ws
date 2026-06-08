@@ -4,26 +4,28 @@ package_name = 'cleaner_system1'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='0.1.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
+         ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # (필요 시) launch/ 등 추가
+        # ('share/' + package_name + '/launch', ['launch/xxx.launch.py']),
     ],
-    install_requires=['setuptools'],
+    install_requires=[
+        'setuptools',
+        'jsonschema>=4.0.0',   
+    ],
     zip_safe=True,
-    maintainer='sunny',
-    maintainer_email='dja211024@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
+    maintainer='geunpilpark',
+    maintainer_email='engiman0401@gmail.com',
+    description='System-1 executor for ATS (plan orchestration, Nav2, scan/track).',
+    license='Apache-2.0',
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'system1_executor_node = cleaner_system1.nodes.system1_executor_node:main',
         ],
     },
 )

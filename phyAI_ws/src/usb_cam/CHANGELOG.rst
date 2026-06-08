@@ -122,10 +122,10 @@ Changelog for package usb_cam
 0.6.0 (2023-04-02)
 ------------------
 * If auto exposure is true, set it
-* Migrate previous pixel formats to new approach
+* Migrate previous pixel formcleaner to new approach
   - Add M4202RGB pixel format (aka YUV420 to RGB8)
   - Add Y102MONO8 pixel format (aka MONO10 to MONO8)
-* Update documentation related to supported formats
+* Update documentation related to supported formcleaner
   - update doc strings in new pixel format base class
 * Fix linter errors, clean up tests
   - fix humble and rolling build
@@ -149,7 +149,7 @@ Changelog for package usb_cam
 * Ensure usb_cam lib and node are installed
 * Add missing include to test_usb_cam_lib
 * Rename format enums to make code easier to read
-* Make supported formats a member variable of the UsbCam class
+* Make supported formcleaner a member variable of the UsbCam class
 * Adjust get_image method to return image to reduce required args
 * Use unused arguments in MJPEG2RGB conversion function
 * Treat all compiler warnings as errors to be more strict
@@ -163,7 +163,7 @@ Changelog for package usb_cam
 * Update README.md
   resolved error with `apt-get` from `apt get`
 * Add back in missing copyrights
-* Improve supported formats method for UsbCam object
+* Improve supported formcleaner method for UsbCam object
 * Fix MJPEG2RGB conversion function
 * Enable code coverage using lcov
 * Add integration test for usb_cam lib
@@ -290,7 +290,7 @@ Changelog for package usb_cam
   set proper default device and look for more bad return values
   trying to find why framerate is limited to about 8 fps
   framerate ok for low-exposure settings
-  print list of valid formats `#105 <https://github.com/ros-drivers/usb_cam/issues/105>`_
+  print list of valid formcleaner `#105 <https://github.com/ros-drivers/usb_cam/issues/105>`_
 * use the v4l2_buffer timestamp if available. `#75 <https://github.com/ros-drivers/usb_cam/issues/75>`_
   usb_cam.cpp is building but untested `#103 <https://github.com/ros-drivers/usb_cam/issues/103>`_
   Builds but crashes immediately after running

@@ -43,9 +43,9 @@ TEST(test_usb_cam_lib, test_usb_cam_class) {
 
   test_usb_cam.start();
 
-  auto supported_fmts = test_usb_cam.get_supported_formats();
+  auto supported_fmts = test_usb_cam.get_supported_formcleaner();
 
-  // TODO(flynneva): iterate over availble formats with test_usb_cam obj
+  // TODO(flynneva): iterate over availble formcleaner with test_usb_cam obj
   for (auto fmt : supported_fmts) {
     std::cerr << "format: " << fmt.format.type << std::endl;
   }

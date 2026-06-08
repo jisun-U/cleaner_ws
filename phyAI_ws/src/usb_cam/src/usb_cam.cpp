@@ -61,7 +61,7 @@ UsbCam::UsbCam()
 : m_device_name(), m_io(io_method_t::IO_METHOD_MMAP), m_fd(-1),
   m_number_of_buffers(4), m_buffers(new usb_cam::utils::buffer[m_number_of_buffers]), m_image(),
   m_is_capturing(false), m_framerate(0),
-  m_epoch_time_shift_us(usb_cam::utils::get_epoch_time_shift_us()), m_supported_formats()
+  m_epoch_time_shift_us(usb_cam::utils::get_epoch_time_shift_us()), m_supported_formcleaner()
 {}
 
 UsbCam::~UsbCam()
@@ -71,7 +71,7 @@ UsbCam::~UsbCam()
 
 
 /// @brief Fill destination image with source image. If required, convert a given
-/// V4L2 Image into another type. Look up possible V4L2 pixe formats in the
+/// V4L2 Image into another type. Look up possible V4L2 pixe formcleaner in the
 /// `linux/videodev2.h` header file.
 /// @param src a pointer to a V4L2 source image
 /// @param dest a pointer to where the source image should be copied (if required)
@@ -565,9 +565,9 @@ void UsbCam::get_image(char * destination)
   grab_image();
 }
 
-std::vector<capture_format_t> UsbCam::get_supported_formats()
+std::vector<capture_format_t> UsbCam::get_supported_formcleaner()
 {
-  m_supported_formats.clear();
+  m_supported_formcleaner.clear();
   struct v4l2_fmtdesc * current_format = new v4l2_fmtdesc();
   struct v4l2_frmsizeenum * current_size = new v4l2_frmsizeenum();
   struct v4l2_frmivalenum * current_interval = new v4l2_frmivalenum();
@@ -600,7 +600,7 @@ std::vector<capture_format_t> UsbCam::get_supported_formats()
           capture_format_t capture_format;
           capture_format.format = *current_format;
           capture_format.v4l2_fmt = *current_interval;
-          m_supported_formats.push_back(capture_format);
+          m_supported_formcleaner.push_back(capture_format);
         }
       }  // interval loop
     }  // size loop
@@ -610,7 +610,7 @@ std::vector<capture_format_t> UsbCam::get_supported_formats()
   delete (current_size);
   delete (current_interval);
 
-  return m_supported_formats;
+  return m_supported_formcleaner;
 }
 
 void UsbCam::grab_image()

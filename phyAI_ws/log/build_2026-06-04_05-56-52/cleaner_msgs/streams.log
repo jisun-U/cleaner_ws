@@ -1,0 +1,1 @@
+[0.058s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs -- -j16 -l16

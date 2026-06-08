@@ -1,0 +1,21 @@
+[3.328s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_context_builder build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/install.log --single-version-externally-managed install_data
+[3.690s] running egg_info
+[3.692s] writing ../../build/vision_context_builder/vision_context_builder.egg-info/PKG-INFO
+[3.692s] writing dependency_links to ../../build/vision_context_builder/vision_context_builder.egg-info/dependency_links.txt
+[3.692s] writing entry points to ../../build/vision_context_builder/vision_context_builder.egg-info/entry_points.txt
+[3.692s] writing requirements to ../../build/vision_context_builder/vision_context_builder.egg-info/requires.txt
+[3.693s] writing top-level names to ../../build/vision_context_builder/vision_context_builder.egg-info/top_level.txt
+[3.697s] reading manifest file '../../build/vision_context_builder/vision_context_builder.egg-info/SOURCES.txt'
+[3.698s] writing manifest file '../../build/vision_context_builder/vision_context_builder.egg-info/SOURCES.txt'
+[3.698s] running build
+[3.698s] running build_py
+[3.698s] running install
+[3.699s] running install_lib
+[3.705s] running install_data
+[3.705s] running install_egg_info
+[3.708s] removing '/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages/vision_context_builder-0.0.0-py3.10.egg-info' (and everything under it)
+[3.708s] Copying ../../build/vision_context_builder/vision_context_builder.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages/vision_context_builder-0.0.0-py3.10.egg-info
+[3.709s] running install_scripts
+[3.739s] Installing vision_context_builder_node script to /home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/vision_context_builder
+[3.740s] writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/install.log'
+[3.845s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/vision_context_builder' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/vision_context_builder/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_context_builder build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/vision_context_builder/install.log --single-version-externally-managed install_data
