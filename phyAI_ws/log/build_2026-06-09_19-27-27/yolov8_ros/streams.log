@@ -1,0 +1,49 @@
+[1.309s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data
+[1.646s] running egg_info
+[1.646s] creating ../../../build/yolov8_ros/yolov8_ros.egg-info
+[1.646s] writing ../../../build/yolov8_ros/yolov8_ros.egg-info/PKG-INFO
+[1.646s] writing dependency_links to ../../../build/yolov8_ros/yolov8_ros.egg-info/dependency_links.txt
+[1.646s] writing entry points to ../../../build/yolov8_ros/yolov8_ros.egg-info/entry_points.txt
+[1.647s] writing requirements to ../../../build/yolov8_ros/yolov8_ros.egg-info/requires.txt
+[1.647s] writing top-level names to ../../../build/yolov8_ros/yolov8_ros.egg-info/top_level.txt
+[1.650s] writing manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[1.650s] reading manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[1.651s] writing manifest file '../../../build/yolov8_ros/yolov8_ros.egg-info/SOURCES.txt'
+[1.651s] running build
+[1.651s] running build_py
+[1.651s] creating /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build
+[1.652s] creating /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib
+[1.652s] creating /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.652s] copying yolov8_ros/yolov8_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.652s] copying yolov8_ros/tracking_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.653s] copying yolov8_ros/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.657s] copying yolov8_ros/debug_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.657s] copying yolov8_ros/detect_3d_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros
+[1.657s] running install
+[1.657s] running install_lib
+[1.657s] creating /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.657s] copying /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros/yolov8_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.657s] copying /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros/tracking_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.657s] copying /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.657s] copying /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros/debug_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.657s] copying /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build/lib/yolov8_ros/detect_3d_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros
+[1.658s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/yolov8_node.py to yolov8_node.cpython-310.pyc
+[1.664s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/tracking_node.py to tracking_node.cpython-310.pyc
+[1.665s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/__init__.py to __init__.cpython-310.pyc
+[1.665s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/debug_node.py to debug_node.cpython-310.pyc
+[1.671s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros/detect_3d_node.py to detect_3d_node.cpython-310.pyc
+[1.672s] running install_data
+[1.672s] creating /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/ament_index
+[1.672s] creating /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/ament_index/resource_index
+[1.677s] creating /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/ament_index/resource_index/packages
+[1.680s] copying resource/yolov8_ros -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/ament_index/resource_index/packages
+[1.680s] copying package.xml -> /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/share/yolov8_ros
+[1.680s] running install_egg_info
+[1.684s] Copying ../../../build/yolov8_ros/yolov8_ros.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages/yolov8_ros-0.0.0-py3.10.egg-info
+[1.685s] running install_scripts
+[1.739s] Installing debug_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[1.739s] Installing detect_3d_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[1.739s] Installing tracking_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[1.739s] Installing yolov8_node script to /home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/yolov8_ros
+[1.739s] writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log'
+[1.817s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_ros' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/yolov8_ros build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/yolov8_ros/install.log --single-version-externally-managed install_data

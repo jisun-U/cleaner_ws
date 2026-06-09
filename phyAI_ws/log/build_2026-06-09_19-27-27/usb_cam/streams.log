@@ -1,0 +1,79 @@
+[0.841s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/usb_cam': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/usb_cam -- -j16 -l16
+[0.905s] [  7%] [32mBuilding CXX object CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o[0m
+[0.909s] [ 14%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[0.909s] [ 21%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[0.912s] [ 28%] [32mBuilding CXX object CMakeFiles/usb_cam_node_exe.dir/rclcpp_components/node_main_usb_cam_node_exe.cpp.o[0m
+[2.019s] [ 35%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[2.118s] [ 35%] Built target gtest_main
+[3.640s] [ 42%] [32m[1mLinking CXX shared library libusb_cam.so[0m
+[4.314s] [ 42%] Built target usb_cam
+[4.379s] [ 50%] [32mBuilding CXX object CMakeFiles/usb_cam_node.dir/src/usb_cam_node.cpp.o[0m
+[5.384s] [ 57%] [32m[1mLinking CXX static library libgtest.a[0m
+[5.421s] [ 64%] [32m[1mLinking CXX executable usb_cam_node_exe[0m
+[5.440s] [ 64%] Built target gtest
+[5.459s] [ 71%] [32mBuilding CXX object CMakeFiles/test_pixel_formcleaner.dir/test/test_pixel_formcleaner.cpp.o[0m
+[5.459s] [ 78%] [32mBuilding CXX object CMakeFiles/test_usb_cam_utils.dir/test/test_usb_cam_utils.cpp.o[0m
+[5.613s] [ 78%] Built target usb_cam_node_exe
+[6.434s] [ 85%] [32m[1mLinking CXX executable test_usb_cam_utils[0m
+[6.635s] [ 85%] Built target test_usb_cam_utils
+[6.674s] [ 92%] [32m[1mLinking CXX executable test_pixel_formcleaner[0m
+[6.840s] [ 92%] Built target test_pixel_formcleaner
+[9.797s] [100%] [32m[1mLinking CXX shared library libusb_cam_node.so[0m
+[10.068s] [100%] Built target usb_cam_node
+[10.079s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/usb_cam' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/usb_cam -- -j16 -l16
+[10.080s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/usb_cam': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/usb_cam
+[10.085s] -- Install configuration: ""
+[10.086s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/library_path.sh
+[10.086s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/library_path.dsv
+[10.086s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/usb_cam/usb_cam_node_exe
+[10.086s] -- Set runtime path of "/home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/usb_cam/usb_cam_node_exe" to ""
+[10.086s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/usb_cam/show_image.py
+[10.087s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/libusb_cam.so
+[10.088s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/libusb_cam_node.so
+[10.094s] -- Set runtime path of "/home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/libusb_cam_node.so" to ""
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/usb_cam_node.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/mono.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/pixel_format_base.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/av_pixel_format_helper.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/utils.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/m420.hpp
+[10.094s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/yuyv.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/uyvy.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/mjpeg.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/formcleaner/rgb.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/constants.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/usb_cam.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/conversions.hpp
+[10.095s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/include/usb_cam/utils.hpp
+[10.095s] -- Up-to-date: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/lib/libusb_cam_node.so
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/launch
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/launch/__init__.py
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/launch/camera.launch.py
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/launch/camera_config.py
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/config
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/config/params_2.yaml
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/config/params_1.yaml
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/config/camera_info.yaml
+[10.096s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/ament_index/resource_index/package_run_dependencies/usb_cam
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/ament_index/resource_index/parent_prefix_path/usb_cam
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/ament_prefix_path.sh
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/ament_prefix_path.dsv
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/path.sh
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/environment/path.dsv
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/local_setup.bash
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/local_setup.sh
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/local_setup.zsh
+[10.097s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/local_setup.dsv
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/package.dsv
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/ament_index/resource_index/packages/usb_cam
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/ament_index/resource_index/rclcpp_components/usb_cam
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_libraries-extras.cmake
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_dependencies-extras.cmake
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_include_directories-extras.cmake
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/cmake/usb_camConfig.cmake
+[10.098s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/cmake/usb_camConfig-version.cmake
+[10.099s] -- Installing: /home/sunny/cleaner_ws/phyAI_ws/install/usb_cam/share/usb_cam/package.xml
+[10.101s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/usb_cam' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/usb_cam

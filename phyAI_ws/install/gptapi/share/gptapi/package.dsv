@@ -1,0 +1,6 @@
+source;share/gptapi/hook/pythonpath.ps1
+source;share/gptapi/hook/pythonpath.dsv
+source;share/gptapi/hook/pythonpath.sh
+source;share/gptapi/hook/ament_prefix_path.ps1
+source;share/gptapi/hook/ament_prefix_path.dsv
+source;share/gptapi/hook/ament_prefix_path.sh

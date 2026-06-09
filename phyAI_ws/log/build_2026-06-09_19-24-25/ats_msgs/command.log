@@ -1,0 +1,2 @@
+Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/ats_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/ats_msgs
+Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/ats_msgs' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/ats_msgs

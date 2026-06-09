@@ -1,0 +1,39 @@
+running egg_info
+creating ../../build/gptapi/gptapi.egg-info
+writing ../../build/gptapi/gptapi.egg-info/PKG-INFO
+writing dependency_links to ../../build/gptapi/gptapi.egg-info/dependency_links.txt
+writing entry points to ../../build/gptapi/gptapi.egg-info/entry_points.txt
+writing requirements to ../../build/gptapi/gptapi.egg-info/requires.txt
+writing top-level names to ../../build/gptapi/gptapi.egg-info/top_level.txt
+writing manifest file '../../build/gptapi/gptapi.egg-info/SOURCES.txt'
+reading manifest file '../../build/gptapi/gptapi.egg-info/SOURCES.txt'
+writing manifest file '../../build/gptapi/gptapi.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build
+creating /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib
+creating /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi
+copying gptapi/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi
+copying gptapi/action_generator.py -> /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi
+copying gptapi/action_interpreter.py -> /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi
+running install
+running install_lib
+creating /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi
+copying /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi
+copying /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi/action_generator.py -> /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi
+copying /home/sunny/cleaner_ws/phyAI_ws/build/gptapi/build/lib/gptapi/action_interpreter.py -> /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi
+byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi/action_generator.py to action_generator.cpython-310.pyc
+byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi/action_interpreter.py to action_interpreter.cpython-310.pyc
+running install_data
+creating /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/ament_index
+creating /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/ament_index/resource_index
+creating /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/ament_index/resource_index/packages
+copying resource/gptapi -> /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/ament_index/resource_index/packages
+copying package.xml -> /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/share/gptapi
+running install_egg_info
+Copying ../../build/gptapi/gptapi.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/python3.10/site-packages/gptapi-0.0.0-py3.10.egg-info
+running install_scripts
+Installing action_generator script to /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/gptapi
+Installing action_interpreter script to /home/sunny/cleaner_ws/phyAI_ws/install/gptapi/lib/gptapi
+writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/gptapi/install.log'

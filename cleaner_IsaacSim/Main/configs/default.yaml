@@ -10,6 +10,10 @@ assets: # 아이작심 내 프림 경로 저장
         wheel_drop_right_prim: /World/turtlebot4/wheel_drop_right
         left_wheel_prim: /World/turtlebot4/left_wheel
         right_wheel_prim: /World/turtlebot4/right_wheel
+        semantic_labels:
+          - prim_path: /World/WaterSpill_01
+            class: puddle
+            type: class
 
 ros:
       domain_id: 21

@@ -1,0 +1,105 @@
+[1.324s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system1 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log --single-version-externally-managed install_data
+[1.720s] running egg_info
+[1.720s] creating ../../build/cleaner_system1/cleaner_system1.egg-info
+[1.720s] writing ../../build/cleaner_system1/cleaner_system1.egg-info/PKG-INFO
+[1.720s] writing dependency_links to ../../build/cleaner_system1/cleaner_system1.egg-info/dependency_links.txt
+[1.720s] writing entry points to ../../build/cleaner_system1/cleaner_system1.egg-info/entry_points.txt
+[1.720s] writing requirements to ../../build/cleaner_system1/cleaner_system1.egg-info/requires.txt
+[1.720s] writing top-level names to ../../build/cleaner_system1/cleaner_system1.egg-info/top_level.txt
+[1.721s] writing manifest file '../../build/cleaner_system1/cleaner_system1.egg-info/SOURCES.txt'
+[1.727s] reading manifest file '../../build/cleaner_system1/cleaner_system1.egg-info/SOURCES.txt'
+[1.728s] adding license file 'LICENSE'
+[1.728s] writing manifest file '../../build/cleaner_system1/cleaner_system1.egg-info/SOURCES.txt'
+[1.728s] running build
+[1.728s] running build_py
+[1.728s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build
+[1.728s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib
+[1.728s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1
+[1.729s] copying cleaner_system1/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1
+[1.729s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.729s] copying cleaner_system1/core/state_publisher.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.729s] copying cleaner_system1/core/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.729s] copying cleaner_system1/core/replan.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.729s] copying cleaner_system1/core/guards.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.729s] copying cleaner_system1/core/vision_context.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.730s] copying cleaner_system1/core/plan_schema.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core
+[1.730s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/io
+[1.730s] copying cleaner_system1/io/topics.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/io
+[1.733s] copying cleaner_system1/io/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/io
+[1.733s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils
+[1.733s] copying cleaner_system1/utils/logging.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils
+[1.733s] copying cleaner_system1/utils/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils
+[1.733s] copying cleaner_system1/utils/timing.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils
+[1.733s] copying cleaner_system1/utils/geometry.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils
+[1.734s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.734s] copying cleaner_system1/actions/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.734s] copying cleaner_system1/actions/return_to_home.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.734s] copying cleaner_system1/actions/track.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.734s] copying cleaner_system1/actions/scan.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.734s] copying cleaner_system1/actions/report_and_wait.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.735s] copying cleaner_system1/actions/move_to.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions
+[1.735s] creating /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes
+[1.735s] copying cleaner_system1/nodes/system1_executor_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes
+[1.736s] copying cleaner_system1/nodes/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes
+[1.737s] running install
+[1.738s] running install_lib
+[1.740s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1
+[1.740s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.742s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/state_publisher.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.742s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.742s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/replan.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.742s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/guards.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.742s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/vision_context.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/core/plan_schema.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core
+[1.744s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/io
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/io/topics.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/io
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/io/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/io
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1
+[1.744s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils/logging.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils
+[1.744s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils
+[1.745s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils/timing.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils
+[1.745s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/utils/geometry.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils
+[1.745s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.745s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.745s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/return_to_home.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.745s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/track.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.747s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/scan.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.747s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/report_and_wait.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.747s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/actions/move_to.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions
+[1.747s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes
+[1.747s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes/system1_executor_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes
+[1.747s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build/lib/cleaner_system1/nodes/__init__.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes
+[1.748s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/state_publisher.py to state_publisher.cpython-310.pyc
+[1.749s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/__init__.py to __init__.cpython-310.pyc
+[1.749s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/replan.py to replan.cpython-310.pyc
+[1.750s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/guards.py to guards.cpython-310.pyc
+[1.752s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/vision_context.py to vision_context.cpython-310.pyc
+[1.752s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/core/plan_schema.py to plan_schema.cpython-310.pyc
+[1.752s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/io/topics.py to topics.cpython-310.pyc
+[1.753s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/io/__init__.py to __init__.cpython-310.pyc
+[1.753s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/__init__.py to __init__.cpython-310.pyc
+[1.754s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils/logging.py to logging.cpython-310.pyc
+[1.756s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils/__init__.py to __init__.cpython-310.pyc
+[1.756s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils/timing.py to timing.cpython-310.pyc
+[1.756s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/utils/geometry.py to geometry.cpython-310.pyc
+[1.756s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/__init__.py to __init__.cpython-310.pyc
+[1.756s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/return_to_home.py to return_to_home.cpython-310.pyc
+[1.757s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/track.py to track.cpython-310.pyc
+[1.764s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/scan.py to scan.cpython-310.pyc
+[1.766s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/report_and_wait.py to report_and_wait.cpython-310.pyc
+[1.768s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/actions/move_to.py to move_to.cpython-310.pyc
+[1.773s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes/system1_executor_node.py to system1_executor_node.cpython-310.pyc
+[1.773s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1/nodes/__init__.py to __init__.cpython-310.pyc
+[1.773s] running install_data
+[1.773s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/ament_index
+[1.774s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/ament_index/resource_index
+[1.774s] creating /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/ament_index/resource_index/packages
+[1.774s] copying resource/cleaner_system1 -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/ament_index/resource_index/packages
+[1.774s] copying package.xml -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/share/cleaner_system1
+[1.774s] running install_egg_info
+[1.777s] Copying ../../build/cleaner_system1/cleaner_system1.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages/cleaner_system1-0.1.0-py3.10.egg-info
+[1.780s] running install_scripts
+[1.804s] Installing system1_executor_node script to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/cleaner_system1
+[1.805s] writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log'
+[1.864s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system1' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system1 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system1/install.log --single-version-externally-managed install_data

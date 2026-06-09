@@ -1,0 +1,1 @@
+Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/yolov8_msgs

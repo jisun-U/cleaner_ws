@@ -1,0 +1,28 @@
+[0.474s] Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system2 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/install.log --single-version-externally-managed install_data
+[0.637s] running egg_info
+[0.638s] writing ../../build/cleaner_system2/cleaner_system2.egg-info/PKG-INFO
+[0.638s] writing dependency_links to ../../build/cleaner_system2/cleaner_system2.egg-info/dependency_links.txt
+[0.638s] writing entry points to ../../build/cleaner_system2/cleaner_system2.egg-info/entry_points.txt
+[0.638s] writing requirements to ../../build/cleaner_system2/cleaner_system2.egg-info/requires.txt
+[0.638s] writing top-level names to ../../build/cleaner_system2/cleaner_system2.egg-info/top_level.txt
+[0.639s] reading manifest file '../../build/cleaner_system2/cleaner_system2.egg-info/SOURCES.txt'
+[0.639s] adding license file 'LICENSE'
+[0.640s] writing manifest file '../../build/cleaner_system2/cleaner_system2.egg-info/SOURCES.txt'
+[0.640s] running build
+[0.640s] running build_py
+[0.640s] copying cleaner_system2/system2_node.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build/lib/cleaner_system2
+[0.640s] copying cleaner_system2/llm_planner.py -> /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build/lib/cleaner_system2
+[0.640s] running install
+[0.640s] running install_lib
+[0.641s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build/lib/cleaner_system2/system2_node.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2
+[0.641s] copying /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build/lib/cleaner_system2/llm_planner.py -> /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2
+[0.641s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2/system2_node.py to system2_node.cpython-310.pyc
+[0.643s] byte-compiling /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2/llm_planner.py to llm_planner.cpython-310.pyc
+[0.644s] running install_data
+[0.644s] running install_egg_info
+[0.645s] removing '/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2-0.0.1-py3.10.egg-info' (and everything under it)
+[0.646s] Copying ../../build/cleaner_system2/cleaner_system2.egg-info to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages/cleaner_system2-0.0.1-py3.10.egg-info
+[0.646s] running install_scripts
+[0.658s] Installing system2_node script to /home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/cleaner_system2
+[0.659s] writing list of installed files to '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/install.log'
+[0.675s] Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_system2' returned '0': PYTHONPATH=/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_system2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cleaner_system2 build --build-base /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/build install --record /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_system2/install.log --single-version-externally-managed install_data

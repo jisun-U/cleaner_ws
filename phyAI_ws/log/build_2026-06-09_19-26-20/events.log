@@ -1,0 +1,346 @@
+[0.000000] (-) TimerEvent: {}
+[0.000184] (-) JobUnselected: {'identifier': 'cleaner_system1'}
+[0.000239] (-) JobUnselected: {'identifier': 'cleaner_system2'}
+[0.000292] (-) JobUnselected: {'identifier': 'gptapi'}
+[0.000355] (-) JobUnselected: {'identifier': 'usb_cam'}
+[0.000365] (-) JobUnselected: {'identifier': 'vision_context_builder'}
+[0.000378] (-) JobUnselected: {'identifier': 'yolov8_bringup'}
+[0.000391] (-) JobUnselected: {'identifier': 'yolov8_msgs'}
+[0.000401] (-) JobUnselected: {'identifier': 'yolov8_ros'}
+[0.000495] (cleaner_msgs) JobQueued: {'identifier': 'cleaner_msgs', 'dependencies': OrderedDict()}
+[0.000550] (cleaner_msgs) JobStarted: {'identifier': 'cleaner_msgs'}
+[0.004291] (cleaner_msgs) JobProgress: {'identifier': 'cleaner_msgs', 'progress': 'cmake'}
+[0.004630] (cleaner_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs', '-DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs'], 'cwd': '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/sunny/cleaner_ws'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('CODEX_CI', '1'), ('LANGUAGE', 'ko:en_US:en'), ('USER', 'sunny'), ('LC_TIME', 'ko_KR.UTF-8'), ('CODEX_INTERNAL_ORIGINATOR_OVERRIDE', 'codex_vscode'), ('VSCODE_NLS_CONFIG', '{"userLocale":"ko","osLocale":"ko","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"ko","availableLanguages":{}}'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('DEBUG', 'release'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/local/cuda-12.8/targets/x86_64-linux/lib'), ('HOME', '/home/sunny'), ('CHROME_DESKTOP', 'code.desktop'), ('CONDA_SHLVL', '0'), ('DESKTOP_SESSION', 'ubuntu-xorg'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-53f03cdb-1.11-main.sock'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('OPENAI_API_KEY', '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'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('LC_CTYPE', 'C.UTF-8'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '2098'), ('NO_COLOR', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=a6fff58c73578d728a0be8206a286403'), ('COLORTERM', ''), ('VSCODE_CRASH_REPORTER_PROCESS_TYPE', 'extensionHost'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunny'), ('_', '/usr/bin/colcon'), ('XDG_SESSION_CLASS', 'user'), ('RUST_LOG', 'warn'), ('USERNAME', 'sunny'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/sunny/.local/bin:/home/sunny/.codex/tmp/arg0/codex-arg0HsArrW:/usr/local/cuda/bin:/home/sunny/anaconda3/condabin:/home/sunny/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/sunny/.npm/_npx/38c708f8d73fe4c9/node_modules/.bin:/home/sunny/.vscode/extensions/openai.chatgpt-26.602.40724-linux-x64/bin/linux-x86_64'), ('SESSION_MANAGER', 'local/s-laptop:@/tmp/.ICE-unix/2098,unix/s-laptop:/tmp/.ICE-unix/2098'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/96d57c78_169b_4938_92e6_3b9c6b182214'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('MUJOCO_PY_MUJOCO_PATH', '/home/sunny/.mujoco/mujoco210'), ('DISPLAY', ':0'), ('CODEX_SANDBOX_NETWORK_DISABLED', '1'), ('LANG', 'C.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('GH_PAGER', 'cat'), ('XDG_SESSION_DESKTOP', 'ubuntu-xorg'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.102'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/sunny/anaconda3/bin/python'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ELECTRON_RUN_AS_NODE', '1'), ('GDMSESSION', 'ubuntu-xorg'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CODEX_THREAD_ID', '019eabdb-37fd-71b1-9408-30b37f1b9ff1'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs'), ('VSCODE_CLI', '1'), ('LC_ALL', 'C.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-xorg:/etc/xdg'), ('CONDA_EXE', '/home/sunny/anaconda3/bin/conda'), ('VSCODE_CODE_CACHE_PATH', '/home/sunny/.config/Code/CachedData/034f571df509819cc10b0c8129f66ef77a542f0e'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=a6fff58c73578d728a0be8206a286403'), ('XDG_DATA_DIRS', '/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('ELECTRON_NO_ATTACH_CONSOLE', '1'), ('VSCODE_PID', '6131'), ('GOOGLE_API_KEY', 'AIzaSyDmL-N4kNilLaoN3HAbkNlc8WDgFUzG_6o')]), 'shell': False}
+[0.049375] (cleaner_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.092849] (cleaner_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.098313] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.099776] (-) TimerEvent: {}
+[0.156780] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.160755] (cleaner_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.160930] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.161185] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.163525] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199882] (-) TimerEvent: {}
+[0.232920] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.237091] (cleaner_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.237332] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.237498] (cleaner_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.247540] (cleaner_msgs) StderrLine: {'line': b'CMake Error at CMakeLists.txt:4 (find_package):\n'}
+[0.247738] (cleaner_msgs) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.247823] (cleaner_msgs) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.247897] (cleaner_msgs) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.247958] (cleaner_msgs) StderrLine: {'line': b'\n'}
+[0.248018] (cleaner_msgs) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.248076] (cleaner_msgs) StderrLine: {'line': b'  any of the following names:\n'}
+[0.248132] (cleaner_msgs) StderrLine: {'line': b'\n'}
+[0.248189] (cleaner_msgs) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.248244] (cleaner_msgs) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.248301] (cleaner_msgs) StderrLine: {'line': b'\n'}
+[0.248359] (cleaner_msgs) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.248417] (cleaner_msgs) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.248475] (cleaner_msgs) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.248544] (cleaner_msgs) StderrLine: {'line': b'  has been installed.\n'}
+[0.248606] (cleaner_msgs) StderrLine: {'line': b'\n'}
+[0.248656] (cleaner_msgs) StderrLine: {'line': b'\n'}
+[0.248684] (cleaner_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.248714] (cleaner_msgs) StdoutLine: {'line': b'See also "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.300007] (-) TimerEvent: {}
+[0.400205] (-) TimerEvent: {}
+[0.500392] (-) TimerEvent: {}
+[0.600579] (-) TimerEvent: {}
+[0.700780] (-) TimerEvent: {}
+[0.801005] (-) TimerEvent: {}
+[0.901228] (-) TimerEvent: {}
+[1.001387] (-) TimerEvent: {}
+[1.101559] (-) TimerEvent: {}
+[1.201732] (-) TimerEvent: {}
+[1.301950] (-) TimerEvent: {}
+[1.402142] (-) TimerEvent: {}
+[1.502411] (-) TimerEvent: {}
+[1.602754] (-) TimerEvent: {}
+[1.703007] (-) TimerEvent: {}
+[1.803254] (-) TimerEvent: {}
+[1.903436] (-) TimerEvent: {}
+[2.003655] (-) TimerEvent: {}
+[2.103901] (-) TimerEvent: {}
+[2.204227] (-) TimerEvent: {}
+[2.304729] (-) TimerEvent: {}
+[2.405001] (-) TimerEvent: {}
+[2.505231] (-) TimerEvent: {}
+[2.605422] (-) TimerEvent: {}
+[2.705607] (-) TimerEvent: {}
+[2.805836] (-) TimerEvent: {}
+[2.906045] (-) TimerEvent: {}
+[3.006281] (-) TimerEvent: {}
+[3.106507] (-) TimerEvent: {}
+[3.206689] (-) TimerEvent: {}
+[3.306879] (-) TimerEvent: {}
+[3.407109] (-) TimerEvent: {}
+[3.507346] (-) TimerEvent: {}
+[3.607630] (-) TimerEvent: {}
+[3.707914] (-) TimerEvent: {}
+[3.808116] (-) TimerEvent: {}
+[3.908319] (-) TimerEvent: {}
+[4.008534] (-) TimerEvent: {}
+[4.108772] (-) TimerEvent: {}
+[4.208949] (-) TimerEvent: {}
+[4.309132] (-) TimerEvent: {}
+[4.409310] (-) TimerEvent: {}
+[4.509495] (-) TimerEvent: {}
+[4.609691] (-) TimerEvent: {}
+[4.709885] (-) TimerEvent: {}
+[4.810076] (-) TimerEvent: {}
+[4.910273] (-) TimerEvent: {}
+[5.010687] (-) TimerEvent: {}
+[5.110935] (-) TimerEvent: {}
+[5.211149] (-) TimerEvent: {}
+[5.311336] (-) TimerEvent: {}
+[5.411524] (-) TimerEvent: {}
+[5.511692] (-) TimerEvent: {}
+[5.611866] (-) TimerEvent: {}
+[5.712081] (-) TimerEvent: {}
+[5.812258] (-) TimerEvent: {}
+[5.912620] (-) TimerEvent: {}
+[6.012981] (-) TimerEvent: {}
+[6.113156] (-) TimerEvent: {}
+[6.213352] (-) TimerEvent: {}
+[6.313568] (-) TimerEvent: {}
+[6.413753] (-) TimerEvent: {}
+[6.513927] (-) TimerEvent: {}
+[6.614146] (-) TimerEvent: {}
+[6.714351] (-) TimerEvent: {}
+[6.814546] (-) TimerEvent: {}
+[6.914716] (-) TimerEvent: {}
+[7.014890] (-) TimerEvent: {}
+[7.115089] (-) TimerEvent: {}
+[7.215269] (-) TimerEvent: {}
+[7.315467] (-) TimerEvent: {}
+[7.415673] (-) TimerEvent: {}
+[7.515873] (-) TimerEvent: {}
+[7.616078] (-) TimerEvent: {}
+[7.716295] (-) TimerEvent: {}
+[7.816524] (-) TimerEvent: {}
+[7.916703] (-) TimerEvent: {}
+[8.016964] (-) TimerEvent: {}
+[8.117154] (-) TimerEvent: {}
+[8.217372] (-) TimerEvent: {}
+[8.317561] (-) TimerEvent: {}
+[8.417742] (-) TimerEvent: {}
+[8.517940] (-) TimerEvent: {}
+[8.618184] (-) TimerEvent: {}
+[8.718406] (-) TimerEvent: {}
+[8.818575] (-) TimerEvent: {}
+[8.918795] (-) TimerEvent: {}
+[9.019019] (-) TimerEvent: {}
+[9.119213] (-) TimerEvent: {}
+[9.219394] (-) TimerEvent: {}
+[9.319595] (-) TimerEvent: {}
+[9.419879] (-) TimerEvent: {}
+[9.520132] (-) TimerEvent: {}
+[9.620414] (-) TimerEvent: {}
+[9.720691] (-) TimerEvent: {}
+[9.820940] (-) TimerEvent: {}
+[9.921149] (-) TimerEvent: {}
+[10.021340] (-) TimerEvent: {}
+[10.121694] (-) TimerEvent: {}
+[10.221905] (-) TimerEvent: {}
+[10.322063] (-) TimerEvent: {}
+[10.422242] (-) TimerEvent: {}
+[10.522475] (-) TimerEvent: {}
+[10.622719] (-) TimerEvent: {}
+[10.722966] (-) TimerEvent: {}
+[10.823188] (-) TimerEvent: {}
+[10.923386] (-) TimerEvent: {}
+[11.023581] (-) TimerEvent: {}
+[11.123776] (-) TimerEvent: {}
+[11.224006] (-) TimerEvent: {}
+[11.324199] (-) TimerEvent: {}
+[11.424407] (-) TimerEvent: {}
+[11.524580] (-) TimerEvent: {}
+[11.624801] (-) TimerEvent: {}
+[11.725165] (-) TimerEvent: {}
+[11.825409] (-) TimerEvent: {}
+[11.925612] (-) TimerEvent: {}
+[12.025814] (-) TimerEvent: {}
+[12.126071] (-) TimerEvent: {}
+[12.226315] (-) TimerEvent: {}
+[12.326617] (-) TimerEvent: {}
+[12.426961] (-) TimerEvent: {}
+[12.527158] (-) TimerEvent: {}
+[12.627345] (-) TimerEvent: {}
+[12.727570] (-) TimerEvent: {}
+[12.827764] (-) TimerEvent: {}
+[12.927971] (-) TimerEvent: {}
+[13.028210] (-) TimerEvent: {}
+[13.128601] (-) TimerEvent: {}
+[13.228902] (-) TimerEvent: {}
+[13.329100] (-) TimerEvent: {}
+[13.429320] (-) TimerEvent: {}
+[13.529529] (-) TimerEvent: {}
+[13.629732] (-) TimerEvent: {}
+[13.729911] (-) TimerEvent: {}
+[13.830312] (-) TimerEvent: {}
+[13.930791] (-) TimerEvent: {}
+[14.031115] (-) TimerEvent: {}
+[14.131431] (-) TimerEvent: {}
+[14.231691] (-) TimerEvent: {}
+[14.331926] (-) TimerEvent: {}
+[14.432112] (-) TimerEvent: {}
+[14.532324] (-) TimerEvent: {}
+[14.632566] (-) TimerEvent: {}
+[14.732780] (-) TimerEvent: {}
+[14.832946] (-) TimerEvent: {}
+[14.933205] (-) TimerEvent: {}
+[15.033472] (-) TimerEvent: {}
+[15.133694] (-) TimerEvent: {}
+[15.233881] (-) TimerEvent: {}
+[15.334061] (-) TimerEvent: {}
+[15.434225] (-) TimerEvent: {}
+[15.534461] (-) TimerEvent: {}
+[15.634722] (-) TimerEvent: {}
+[15.734912] (-) TimerEvent: {}
+[15.835130] (-) TimerEvent: {}
+[15.935292] (-) TimerEvent: {}
+[16.035466] (-) TimerEvent: {}
+[16.135668] (-) TimerEvent: {}
+[16.235834] (-) TimerEvent: {}
+[16.336059] (-) TimerEvent: {}
+[16.436274] (-) TimerEvent: {}
+[16.536468] (-) TimerEvent: {}
+[16.636701] (-) TimerEvent: {}
+[16.736893] (-) TimerEvent: {}
+[16.837146] (-) TimerEvent: {}
+[16.937351] (-) TimerEvent: {}
+[17.037618] (-) TimerEvent: {}
+[17.137930] (-) TimerEvent: {}
+[17.238143] (-) TimerEvent: {}
+[17.338353] (-) TimerEvent: {}
+[17.438536] (-) TimerEvent: {}
+[17.538721] (-) TimerEvent: {}
+[17.638943] (-) TimerEvent: {}
+[17.739169] (-) TimerEvent: {}
+[17.839344] (-) TimerEvent: {}
+[17.939585] (-) TimerEvent: {}
+[18.039807] (-) TimerEvent: {}
+[18.140040] (-) TimerEvent: {}
+[18.240250] (-) TimerEvent: {}
+[18.340418] (-) TimerEvent: {}
+[18.440580] (-) TimerEvent: {}
+[18.540784] (-) TimerEvent: {}
+[18.641025] (-) TimerEvent: {}
+[18.741269] (-) TimerEvent: {}
+[18.841491] (-) TimerEvent: {}
+[18.941684] (-) TimerEvent: {}
+[19.041906] (-) TimerEvent: {}
+[19.142261] (-) TimerEvent: {}
+[19.242657] (-) TimerEvent: {}
+[19.342890] (-) TimerEvent: {}
+[19.443104] (-) TimerEvent: {}
+[19.543272] (-) TimerEvent: {}
+[19.643448] (-) TimerEvent: {}
+[19.743623] (-) TimerEvent: {}
+[19.843825] (-) TimerEvent: {}
+[19.944037] (-) TimerEvent: {}
+[20.044308] (-) TimerEvent: {}
+[20.144531] (-) TimerEvent: {}
+[20.244727] (-) TimerEvent: {}
+[20.344909] (-) TimerEvent: {}
+[20.445078] (-) TimerEvent: {}
+[20.545310] (-) TimerEvent: {}
+[20.645546] (-) TimerEvent: {}
+[20.745724] (-) TimerEvent: {}
+[20.845898] (-) TimerEvent: {}
+[20.946070] (-) TimerEvent: {}
+[21.046294] (-) TimerEvent: {}
+[21.146488] (-) TimerEvent: {}
+[21.246717] (-) TimerEvent: {}
+[21.346927] (-) TimerEvent: {}
+[21.447113] (-) TimerEvent: {}
+[21.547307] (-) TimerEvent: {}
+[21.647576] (-) TimerEvent: {}
+[21.747775] (-) TimerEvent: {}
+[21.847940] (-) TimerEvent: {}
+[21.948292] (-) TimerEvent: {}
+[22.048542] (-) TimerEvent: {}
+[22.148758] (-) TimerEvent: {}
+[22.248975] (-) TimerEvent: {}
+[22.349158] (-) TimerEvent: {}
+[22.449345] (-) TimerEvent: {}
+[22.549519] (-) TimerEvent: {}
+[22.649746] (-) TimerEvent: {}
+[22.749955] (-) TimerEvent: {}
+[22.850178] (-) TimerEvent: {}
+[22.950374] (-) TimerEvent: {}
+[23.050583] (-) TimerEvent: {}
+[23.150786] (-) TimerEvent: {}
+[23.250991] (-) TimerEvent: {}
+[23.351403] (-) TimerEvent: {}
+[23.451855] (-) TimerEvent: {}
+[23.552103] (-) TimerEvent: {}
+[23.652398] (-) TimerEvent: {}
+[23.752690] (-) TimerEvent: {}
+[23.852921] (-) TimerEvent: {}
+[23.953165] (-) TimerEvent: {}
+[24.053415] (-) TimerEvent: {}
+[24.153622] (-) TimerEvent: {}
+[24.253927] (-) TimerEvent: {}
+[24.354135] (-) TimerEvent: {}
+[24.454328] (-) TimerEvent: {}
+[24.554492] (-) TimerEvent: {}
+[24.654674] (-) TimerEvent: {}
+[24.754841] (-) TimerEvent: {}
+[24.855015] (-) TimerEvent: {}
+[24.955248] (-) TimerEvent: {}
+[25.055537] (-) TimerEvent: {}
+[25.155782] (-) TimerEvent: {}
+[25.256100] (-) TimerEvent: {}
+[25.356335] (-) TimerEvent: {}
+[25.456521] (-) TimerEvent: {}
+[25.556693] (-) TimerEvent: {}
+[25.656907] (-) TimerEvent: {}
+[25.757182] (-) TimerEvent: {}
+[25.857421] (-) TimerEvent: {}
+[25.957674] (-) TimerEvent: {}
+[26.057845] (-) TimerEvent: {}
+[26.158021] (-) TimerEvent: {}
+[26.258186] (-) TimerEvent: {}
+[26.358399] (-) TimerEvent: {}
+[26.458575] (-) TimerEvent: {}
+[26.558809] (-) TimerEvent: {}
+[26.658999] (-) TimerEvent: {}
+[26.759190] (-) TimerEvent: {}
+[26.859423] (-) TimerEvent: {}
+[26.959638] (-) TimerEvent: {}
+[27.059886] (-) TimerEvent: {}
+[27.160111] (-) TimerEvent: {}
+[27.260367] (-) TimerEvent: {}
+[27.360555] (-) TimerEvent: {}
+[27.460718] (-) TimerEvent: {}
+[27.560889] (-) TimerEvent: {}
+[27.661053] (-) TimerEvent: {}
+[27.761270] (-) TimerEvent: {}
+[27.861474] (-) TimerEvent: {}
+[27.961687] (-) TimerEvent: {}
+[28.061875] (-) TimerEvent: {}
+[28.162039] (-) TimerEvent: {}
+[28.262209] (-) TimerEvent: {}
+[28.362400] (-) TimerEvent: {}
+[28.462582] (-) TimerEvent: {}
+[28.562785] (-) TimerEvent: {}
+[28.663005] (-) TimerEvent: {}
+[28.763253] (-) TimerEvent: {}
+[28.863424] (-) TimerEvent: {}
+[28.963590] (-) TimerEvent: {}
+[29.063804] (-) TimerEvent: {}
+[29.164004] (-) TimerEvent: {}
+[29.264184] (-) TimerEvent: {}
+[29.364444] (-) TimerEvent: {}
+[29.464666] (-) TimerEvent: {}
+[29.564873] (-) TimerEvent: {}
+[29.665142] (-) TimerEvent: {}
+[29.765338] (-) TimerEvent: {}
+[29.865532] (-) TimerEvent: {}
+[29.965713] (-) TimerEvent: {}
+[30.030795] (cleaner_msgs) CommandEnded: {'returncode': 1}
+[30.048353] (cleaner_msgs) JobEnded: {'identifier': 'cleaner_msgs', 'rc': 1}
+[30.058890] (-) EventReactorShutdown: {}

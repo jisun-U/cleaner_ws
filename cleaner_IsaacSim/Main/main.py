@@ -23,6 +23,7 @@ world = SimWorld(
     usd_path=cfg["assets"]["usd_path"],
     cleaner_prim=cfg["assets"]["cleaner_prim"],
     articulation_root=cfg["assets"]["base_link"],
+    semantic_labels=cfg["assets"].get("semantic_labels", []),
     imu_dummy_prim="",
     fixed_time_step=True,
     play_every_frame=True,

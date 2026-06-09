@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-859bd2b950551b16a9c9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "cleaner_msgs__py",
+					"jsonFile" : "directory-cleaner_msgs__py-d5858cdd6d2ea1b609e4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/cleaner_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "cleaner_msgs__rs",
+					"jsonFile" : "directory-cleaner_msgs__rs-42e9260c4fe30ac8b7af.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs/cleaner_msgs__rs",
+					"targetIndexes" : 
+					[
+						16
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "cleaner_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_cleaner_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_cleaner_msgs_egg-59db75e525eed9350847.json",
+					"name" : "ament_cmake_python_build_cleaner_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_cleaner_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_cleaner_msgs-5466474eb78c54e06a25.json",
+					"name" : "ament_cmake_python_copy_cleaner_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs-a2e13e68e08c08f02438.json",
+					"name" : "cleaner_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__cpp-22c9f22fd5600e13ccd4.json",
+					"name" : "cleaner_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "cleaner_msgs__py::@276df35a4c0157a4806d",
+					"jsonFile" : "target-cleaner_msgs__py-928537bca128e3736f72.json",
+					"name" : "cleaner_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_generator_c-c015ca3990c7fc401dd3.json",
+					"name" : "cleaner_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_generator_py-63be3a91d0dc8cb5f6a7.json",
+					"name" : "cleaner_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_c-f90d6677330b4c4ff2d0.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_c__pyext-57c93ff5fc4ce37430f8.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_cpp-3d9b53b0b772f7a5b66d.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_fastrtps_c-3c3837e8673c82f1aae0.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_fastrtps_c__pyext-51860882ac8ed9aca92d.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_fastrtps_cpp-4ec1d24e03973c3fdf7b.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_introspection_c-0ab98d0d3dc269100903.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_introspection_c__pyext-faaf51bc035673080324.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs__rosidl_typesupport_introspection_cpp-3e0e061db4c0ab3eb730.json",
+					"name" : "cleaner_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cleaner_msgs__rs::@82d3179b121158d50747",
+					"jsonFile" : "target-cleaner_msgs__rs-a1633a68846aa5453f5e.json",
+					"name" : "cleaner_msgs__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cleaner_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cleaner_msgs_uninstall-f22e508ba474a0f8b9b4.json",
+					"name" : "cleaner_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-cddb4c8a67e924ff9d60.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs",
+		"source" : "/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

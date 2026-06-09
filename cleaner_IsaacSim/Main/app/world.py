@@ -8,11 +8,44 @@ from pxr import UsdGeom, Sdf
 import omni.usd, omni.kit.app, omni.kit.commands as kitcmd
 from pxr import Gf, Sdf
 
+
+def apply_semantic_labels(stage, semantic_labels: list[dict] | None) -> None:
+    if not semantic_labels:
+        return
+
+    try:
+        from omni.isaac.core.utils.semantics import add_update_semantics
+    except Exception as exc:
+        print(f"[SimWorld] WARNING: semantic utils import failed: {exc}")
+        return
+
+    for item in semantic_labels:
+        prim_path = item.get("prim_path")
+        class_name = item.get("class")
+        semantic_type = item.get("type", "class")
+
+        if not prim_path or not class_name:
+            print(f"[SimWorld] WARNING: invalid semantic label config: {item}")
+            continue
+
+        prim = stage.GetPrimAtPath(prim_path)
+        if not prim.IsValid():
+            print(f"[SimWorld] WARNING: semantic target prim not found: {prim_path}")
+            continue
+
+        add_update_semantics(prim, class_name, semantic_type)
+        print(
+            f"[SimWorld] semantic applied: prim={prim_path}, "
+            f"type={semantic_type}, class={class_name}"
+        )
+
+
 class SimWorld:
     # cleaner_prim: cleaner articulation을 찾기 위한 USD 경로 문자열
     def __init__(self, usd_path: str, cleaner_prim: str, imu_dummy_prim: str,
                  fixed_time_step: bool, play_every_frame: bool, target_hz: int,
-                 lidar_cfg: dict | None = None, articulation_root: str | None = None):
+                 lidar_cfg: dict | None = None, articulation_root: str | None = None,
+                 semantic_labels: list[dict] | None = None):
         
         import omni.usd
         import omni.timeline
@@ -20,6 +53,7 @@ class SimWorld:
 
         open_stage(usd_path) #stage 오픈
         self.stage = omni.usd.get_context().get_stage() 
+        apply_semantic_labels(self.stage, semantic_labels)
         #로봇을 물리 시뮬레이션의 아티큘레이션과 연결 
         #-> 물리 엔진이 로봇을 관절이 있는(제어가 가능한) 객체로 인식하도록 함
 
