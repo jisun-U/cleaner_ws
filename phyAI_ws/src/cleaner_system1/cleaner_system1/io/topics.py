@@ -1,6 +1,5 @@
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
-from cleaner_msgs.msg import Float64MultiArray
 from cleaner_msgs.msg import PlanCommand, ReplanRequest, CleanerState
 
 def create_publishers(node):

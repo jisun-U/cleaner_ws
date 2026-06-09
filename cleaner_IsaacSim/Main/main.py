@@ -1,6 +1,6 @@
 from isaacsim import SimulationApp
 
-simulation_app = SimulationApp({"headless": False})
+simulation_app = SimulationApp({"headless": True})
 simulation_app.update()
 
 from isaacsim.core.utils.extensions import enable_extension

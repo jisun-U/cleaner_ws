@@ -1,13 +1,13 @@
 import json
-from cleaner_msgs.msg import AtsState
+from cleaner_msgs.msg import CleanerState
 
 def make_state(node, cache_pose, mission,
                system_state: str, queue_status: str,
                plan: dict | None, current_index: int,
                roe_ok: bool, safe_backstop: bool,
                battery_soc: float, max_speed: float,
-               vision_snapshot: dict) -> AtsState:
-    msg = AtsState()
+               vision_snapshot: dict) -> CleanerState:
+    msg = CleanerState()
     msg.stamp = node.get_clock().now().to_msg()
     msg.system_state = system_state
 

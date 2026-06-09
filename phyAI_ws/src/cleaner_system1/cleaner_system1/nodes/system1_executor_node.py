@@ -24,7 +24,6 @@ from cleaner_system1.actions.move_to import Nav2Navigator, exec_move_to
 from cleaner_system1.actions.scan import exec_scan
 from cleaner_system1.actions.track import Tracker, DepthBuffer
 from cleaner_system1.actions.return_to_home import exec_return_to_home
-from cleaner_system1.actions.report_and_wait import exec_report_and_wait
 
 
 class System1ExecutorNode(Node):
@@ -34,7 +33,6 @@ class System1ExecutorNode(Node):
     지원 Task:
       - move_to         : 지정 위치로 이동 (Nav2 기반)
       - scan            : cleaner로 주변 스캔
-      - report_and_wait : 현재 상황 보고 + System2 응답 대기
       - track           : 타겟 추적 (Tracker)
       - return_to_home  : Home 위치로 복귀(move_to 재사용)
     """
@@ -56,6 +54,8 @@ class System1ExecutorNode(Node):
         self.queue_status = "idle"
         self.mission_id = ""
         self.execution_generation = 0
+        self.execution_history = []
+        self._final_report_sent_generation = -1
 
         # 필요시 guard에서 사용하는 심볼
         self.ROE_OK = False
@@ -88,10 +88,9 @@ class System1ExecutorNode(Node):
         create_subscriptions(self, self.on_plan_cmd, self.on_vision)
         self.create_subscription(String, "/vision_context_raw", self.on_vision_raw, 10)
 
-        # ---------- System2로 report 컨텍스트 보내는 토픽 ----------
-        self.pub_report_context = self.create_publisher(
+        self.pub_final_report = self.create_publisher(
             String,
-            "/system2/report_context",
+            "/system2/final_report",
             10,
         )
 
@@ -168,6 +167,8 @@ class System1ExecutorNode(Node):
                 self.current_index = -1
                 self.mission_id = plan.get("mission_id", "")
                 self.queue_status = "idle"
+                self.execution_history = []
+                self._final_report_sent_generation = -1
             self.publish_state()
             return
         
@@ -207,6 +208,8 @@ class System1ExecutorNode(Node):
             self.mission_id = plan.get("mission_id", "")
             self.current_index = 0
             self.queue_status = "running"
+            self.execution_history = []
+            self._final_report_sent_generation = -1
 
         # 큐 상태 전환 로그
         self.get_logger().info(
@@ -282,6 +285,7 @@ class System1ExecutorNode(Node):
             self.get_logger().info(
                 f"[Step] START idx={idx}, task={task}, retry_left={retry_left}"
             )
+            step_started_at = time.time()
 
             # ----------- Guard 체크 -----------
             if guard:
@@ -353,17 +357,6 @@ class System1ExecutorNode(Node):
                 )
                 self.get_logger().info(f"[scan] result ok={ok}")
 
-            elif task == "report_and_wait":
-                self.get_logger().info("[report_and_wait] 실행 시작")
-                ok = exec_report_and_wait(
-                    node=self,
-                    vision=self.vision,
-                    last_pose=self._last_pose,
-                    mission_id=self.mission_id,
-                    params=params,
-                )
-                self.get_logger().info(f"[report_and_wait] result ok={ok}")
-
             elif task == "track":
                 self.get_logger().info(f"[track] params={params}")
                 ok = self._do_track(params, plan)
@@ -398,12 +391,28 @@ class System1ExecutorNode(Node):
             # ----------- 결과 처리 -----------
             if not ok:
                 if retry_left > 0:
+                    self._record_step_result(
+                        idx=idx,
+                        task=task,
+                        ok=False,
+                        params=params,
+                        started_at=step_started_at,
+                        note=f"retry_left={retry_left - 1}",
+                    )
                     step["retry"] = retry_left - 1
                     self.get_logger().warn(
                         f"[Step] FAILED task={task}, idx={idx} → 재시도 남음 {step['retry']}"
                     )
                     # 같은 index에서 재시도 (current_index 그대로)
                 else:
+                    self._record_step_result(
+                        idx=idx,
+                        task=task,
+                        ok=False,
+                        params=params,
+                        started_at=step_started_at,
+                        note="no_retry_left",
+                    )
                     self.get_logger().error(
                         f"[Step] FAILED task={task}, idx={idx} → 재시도 없음, queue_status=error"
                     )
@@ -423,6 +432,13 @@ class System1ExecutorNode(Node):
                         self.queue_status = "error"
                     break
             else:
+                self._record_step_result(
+                    idx=idx,
+                    task=task,
+                    ok=True,
+                    params=params,
+                    started_at=step_started_at,
+                )
                 with self.lock:
 
                     prev_idx = self.current_index
@@ -436,6 +452,60 @@ class System1ExecutorNode(Node):
 
         # 루프 종료 시점에서 상태 한 번 더 publish
         self.publish_state()
+        self._publish_final_report_if_needed(my_generation)
+
+    def _record_step_result(
+        self,
+        idx: int,
+        task: str,
+        ok: bool,
+        params: Dict[str, Any],
+        started_at: float,
+        note: str = "",
+    ):
+        ended_at = time.time()
+        self.execution_history.append(
+            {
+                "idx": int(idx),
+                "task": task,
+                "ok": bool(ok),
+                "started_at": started_at,
+                "ended_at": ended_at,
+                "duration_sec": round(ended_at - started_at, 3),
+                "params": params or {},
+                "note": note,
+            }
+        )
+
+    def _publish_final_report_if_needed(self, generation: int):
+        with self.lock:
+            if self.execution_generation != generation:
+                return
+            if self.queue_status not in ("done", "error"):
+                return
+            if self._final_report_sent_generation == generation:
+                return
+
+            vision_snapshot = self.vision.snapshot()
+            payload = {
+                "mission_id": self.mission_id,
+                "final_status": self.queue_status,
+                "completed_steps": sum(1 for s in self.execution_history if s.get("ok")),
+                "total_recorded_steps": len(self.execution_history),
+                "current_index": self.current_index,
+                "last_pose": dict(self._last_pose),
+                "vision": vision_snapshot,
+                "execution_history": list(self.execution_history),
+                "generated_at": time.time(),
+            }
+            self._final_report_sent_generation = generation
+
+        msg = String()
+        msg.data = json.dumps(payload, ensure_ascii=False)
+        self.pub_final_report.publish(msg)
+        self.get_logger().info(
+            f"[FinalReport] published to /system2/final_report status={payload['final_status']}"
+        )
 
     # ----------- 단위 액션 헬퍼 -----------
     def _do_report(self, params: dict) -> bool:

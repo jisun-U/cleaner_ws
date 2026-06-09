@@ -181,16 +181,28 @@ def exec_move_to(
     grace_sec = float(rules.get("progress_grace_sec", 50.0))            # 5 → 8s
     eps_m = float(rules.get("progress_epsilon_m", 0.05))               # 0.03 → 0.05m
     near_goal_eps = float(rules.get("near_goal_epsilon_m", 1.0))      # 목표 근처는 stuck 판정 제외
+    goal_xy_tol = float(rules.get("goal_xy_tolerance_m", 0.20))
+    goal_hold_sec = float(rules.get("goal_hold_sec", 0.2))
+    pose_progress_eps = float(rules.get("pose_progress_epsilon_m", 0.15))
+    feedback_stale_sec = float(rules.get("feedback_stale_sec", 5.0))
 
     node.get_logger().info(
         f"[move_to] start, rules: hard_stuck={hard_stuck}s, "
-        f"grace={grace_sec}s, eps={eps_m}m, near_goal={near_goal_eps}m"
+        f"grace={grace_sec}s, eps={eps_m}m, near_goal={near_goal_eps}m, "
+        f"goal_xy_tol={goal_xy_tol}m, goal_hold={goal_hold_sec}s, "
+        f"pose_progress_eps={pose_progress_eps}m, feedback_stale={feedback_stale_sec}s"
     )
 
     accept_t = time.time()
     last_prog = accept_t
     best_dist = float("inf")
     last_print = 0.0
+    near_goal_since = None
+    last_pose_prog = accept_t
+
+    goal_x = float(goal.get("x", 0.0))
+    goal_y = float(goal.get("y", 0.0))
+    last_pose_xy = None
 
     while rclpy.ok():
         time.sleep(0.2)
@@ -215,9 +227,47 @@ def exec_move_to(
                 )
             last_print = now
 
+        # ----------- 실제 pose 기준 성공 판정 -----------
+        last_pose = getattr(node, "_last_pose", {})
+        if last_pose.get("ok", False):
+            cur_x = float(last_pose.get("x", 0.0))
+            cur_y = float(last_pose.get("y", 0.0))
+            dx = float(last_pose.get("x", 0.0)) - goal_x
+            dy = float(last_pose.get("y", 0.0)) - goal_y
+            xy_err = math.hypot(dx, dy)
+
+            if last_pose_xy is None:
+                last_pose_xy = (cur_x, cur_y)
+                last_pose_prog = now
+            else:
+                pose_step = math.hypot(cur_x - last_pose_xy[0], cur_y - last_pose_xy[1])
+                if pose_step >= pose_progress_eps:
+                    last_pose_prog = now
+                    last_pose_xy = (cur_x, cur_y)
+
+            if xy_err <= goal_xy_tol:
+                if near_goal_since is None:
+                    near_goal_since = now
+                elif (now - near_goal_since) >= goal_hold_sec:
+                    node.get_logger().info(
+                        "[move_to] within 20cm radius -> success "
+                        f"(xy_err={xy_err:.3f}m)"
+                    )
+                    return True
+            else:
+                near_goal_since = None
+
         # ----------- 진행 상황 확인 (stuck 감지) -----------
         dist = nav_feedback.get("distance_remaining", None)
+        fb_stamp = float(nav_feedback.get("stamp", 0.0) or 0.0)
         if dist is not None:
+            if dist <= goal_xy_tol:
+                node.get_logger().info(
+                    "[move_to] distance_remaining within 20cm -> success "
+                    f"(dist={dist:.3f}m)"
+                )
+                return True
+
             # 현재까지의 최고 기록(best_dist) 갱신
             if dist < (best_dist - eps_m):
                 best_dist = dist
@@ -230,11 +280,19 @@ def exec_move_to(
                 # stuck 타이머는 더 이상 사용하지 않음.
                 pass
             else:
-                # grace_sec 이후, hard_stuck 동안 진전 없으면 stuck으로 판단
-                if (now - accept_t) > grace_sec and (now - last_prog) > hard_stuck:
+                fb_stale = fb_stamp > 0.0 and (now - fb_stamp) > feedback_stale_sec
+                pose_stalled = (now - last_pose_prog) > hard_stuck
+
+                # grace_sec 이후, Nav2 진전도 없고 실제 위치도 거의 안 변했을 때만 stuck으로 판단
+                if (
+                    (now - accept_t) > grace_sec
+                    and (now - last_prog) > hard_stuck
+                    and (pose_stalled or fb_stale)
+                ):
                     node.get_logger().warn(
                         "[move_to] 진행 정체 감지 → Nav2 goal cancel & 실패 반환 "
-                        f"(dist≈{dist:.3f}m, best≈{best_dist:.3f}m)"
+                        f"(dist≈{dist:.3f}m, best≈{best_dist:.3f}m, "
+                        f"pose_stalled={pose_stalled}, fb_stale={fb_stale})"
                     )
                     try:
                         navigator.cancel(goal_handle)

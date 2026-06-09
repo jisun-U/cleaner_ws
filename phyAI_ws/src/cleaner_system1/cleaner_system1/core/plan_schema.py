@@ -19,13 +19,12 @@ HIGH_LEVEL_PLAN_SCHEMA: Dict[str, Any] = {
                 "type": "object",
                 "required": ["task", "params"], # task, params는 반드시 들어가야함. guard, retry는 선택적 요소
                 "properties": {
-                    # 여기서 5개 단위 액션만 허용
+                    # 여기서 4개 단위 액션만 허용
                     "task": {
                         "type": "string",
                         "enum": [
                             "move_to",
                             "scan",
-                            "report_and_wait",
                             "track",
                             "return_to_home"
                         ]

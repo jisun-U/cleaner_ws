@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(ats_msgs)
+project(cleaner_msgs)
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
@@ -11,7 +11,7 @@ find_package(builtin_interfaces REQUIRED)
 # find_package(sensor_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/AtsState.msg"
+  "msg/CleanerState.msg"
   "msg/PlanCommand.msg"
   "msg/ReplanRequest.msg"
   DEPENDENCIES

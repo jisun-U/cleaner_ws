@@ -1,0 +1,7 @@
+# Codex local state
+.codex/
+
+# ROS 2 / colcon artifacts
+phyAI_ws/build/
+phyAI_ws/install/
+phyAI_ws/log/

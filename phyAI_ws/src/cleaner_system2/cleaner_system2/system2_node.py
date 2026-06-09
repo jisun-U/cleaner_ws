@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 import json
 import threading
-import time
 from typing import Optional, Any, Dict, Tuple
 
 import cv2  # ★ GUI 갱신용 추가
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from cleaner_msgs.msg import PlanCommand, ReplanRequest, CleanerState
+from cleaner_msgs.msg import PlanCommand
 from sensor_msgs.msg import CompressedImage
 
 from .models import System1State
-from .llm_planner import build_plan_dict
+from .llm_planner import build_plan_dict, summarize_final_report
 from .utils.visualizer import SnapshotVisualizer
 
 
@@ -42,11 +41,6 @@ class System2Node(Node):
         # [핵심 1] GUI가 멈추지 않도록 주기적으로 waitKey를 호출하는 타이머 추가
         self.create_timer(0.1, self.gui_timer_callback)
 
-        # [핵심 2] report_and_wait 응답 처리를 위한 상태 변수
-        self.pending_mission_id = None
-        self.pending_context = None
-        self.waiting_for_decision = False
-
         # ----------- 구독 -----------
         self.snap_img_sub = self.create_subscription(
             CompressedImage, '/system2/snapshot/image', self.on_snapshot_image, 10
@@ -60,15 +54,13 @@ class System2Node(Node):
         self.user_cmd_sub = self.create_subscription(
             String, '/system2/user_command', self.user_command_callback, 10
         )
-        self.report_ctx_sub = self.create_subscription(
-            String, '/system2/report_context', self.report_context_callback, 10
+        self.final_report_sub = self.create_subscription(
+            String, '/system2/final_report', self.final_report_callback, 10
         )
 
         # ----------- 퍼블리셔 -----------
         self.plan_cmd_pub = self.create_publisher(PlanCommand, '/system2/plan_cmd', 10)
         self.plan_log_pub = self.create_publisher(String, '/high_level_plan', 10)
-        self.decision_pub = self.create_publisher(String, '/system1/report_decision', 10)
-
         self.get_logger().info("System2Node started (Non-blocking GUI & Input).")
 
         # 상시 운영자 콘솔 입력 루프를 별도 스레드로 실행
@@ -106,127 +98,104 @@ class System2Node(Node):
         except Exception:
             pass
 
-    # ----------- /system2/report_context 콜백 (Non-blocking 수정) -----------
-    def report_context_callback(self, msg: String):
-        """
-        System1에서 보고가 들어오면, 블로킹 input()을 쓰지 않고 
-        '대기 상태(Flag)'로 전환.
-        """
+    def final_report_callback(self, msg: String):
         try:
             payload = json.loads(msg.data)
-            mission_id = payload.get("mission_id")
-            context = payload.get("context", {}) or {}
-            vision = context.get("vision", {})
-            
-            # 로그 출력
-            targets = vision.get("targets") or []
-            t_desc = f"{len(targets)} targets detected"
-            if targets:
-                t0 = targets[0]
-                t_desc += f" (Main: {t0.get('class')} id={vision.get('primary_id')})"
-
-            self.get_logger().info(f"\n>>> [REPORT RECEIVED] Mission: {mission_id}")
-            self.get_logger().info(f">>> Situation: {t_desc}")
-            self.get_logger().info(">>> 운용자 명령을 입력하세요. (명령이 없으면 엔터)")
-
-            # 상태 저장 (입력 스레드가 이걸 보고 처리함)
-            self.pending_mission_id = mission_id
-            self.pending_context = context
-            self.waiting_for_decision = True
-            
         except Exception as e:
-            self.get_logger().error(f"Report parsing failed: {e}")
+            self.get_logger().error(f"Final report parsing failed: {e}")
+            return
+
+        mission_id = payload.get("mission_id", "")
+        final_status = payload.get("final_status", "unknown")
+        completed_steps = payload.get("completed_steps", 0)
+        total_steps = payload.get("total_recorded_steps", 0)
+        last_pose = payload.get("last_pose", {}) or {}
+        vision = payload.get("vision", {}) or {}
+        targets = vision.get("targets", []) or []
+        history = payload.get("execution_history", []) or []
+
+        lines = [
+            "",
+            "================ FINAL REPORT ================",
+            f"Mission ID: {mission_id}",
+            f"Final Status: {final_status}",
+            f"Completed Steps: {completed_steps}/{total_steps}",
+        ]
+
+        if last_pose.get("ok", False):
+            lines.append(
+                "Last Pose: "
+                f"({last_pose.get('x', 0.0):.2f}, {last_pose.get('y', 0.0):.2f}), "
+                f"yaw={last_pose.get('yaw', 0.0):.2f}"
+            )
+        else:
+            lines.append("Last Pose: Unknown")
+
+        lines.append(f"Detected Targets: {len(targets)}")
+        for target in targets[:5]:
+            lines.append(
+                "  - "
+                f"class={target.get('class', 'unknown')}, "
+                f"id={target.get('id', '?')}, "
+                f"range={target.get('range_m', 'n/a')}"
+            )
+
+        lines.append("Execution Summary:")
+        for step in history:
+            result = "OK" if step.get("ok") else "FAIL"
+            lines.append(
+                "  - "
+                f"[{step.get('idx')}] {step.get('task')} => {result} "
+                f"({step.get('duration_sec', 0.0)}s)"
+            )
+
+        lines.append("=============================================")
+        self.get_logger().info("\n".join(lines))
+
+        try:
+            natural_report = summarize_final_report(payload)
+            self.get_logger().info(
+                "\n[FINAL REPORT - NATURAL LANGUAGE]\n" + natural_report
+            )
+        except Exception as e:
+            self.get_logger().warn(
+                f"Natural-language final report generation failed: {e}"
+            )
 
     # ----------- 공통 명령 처리 (Decision 연동 로직 추가) -----------
     def _handle_user_command_raw(self, raw: str, source: str = "user_command_topic"):
         """
-        입력된 명령을 처리합니다.
-        - 대기 중인 리포트가 있다면 그에 대한 응답(Decision)으로 처리
-        - 없다면 일반 독립 명령으로 처리
+        입력된 명령을 받아 독립적으로 플랜을 생성/전송합니다.
         """
         user_command, extra_context, mission_from_payload = self._parse_user_command_payload(raw)
 
-        # 1. 현재 리포트 응답 대기 중인지 확인
-        is_report_response = self.waiting_for_decision
-        current_mission_id = self.pending_mission_id
-
-        # 2. 명령이 없는 경우 ("그냥 둬", 엔터 등)
+        # 1. 명령이 없는 경우 ("그냥 둬", 엔터 등)
         if _should_treat_as_no(user_command):
-            if is_report_response:
-                # 대기 중이었으면 "명령 없음" 결정 전송 후 대기 해제
-                self._publish_decision(
-                    current_mission_id,
-                    "no_command",
-                    user_command,
-                    "Operator skipped",
-                )
-                self.waiting_for_decision = False
-                self.pending_mission_id = None
-                self.get_logger().info("[System2] Report handled: No command (Resumed).")
-            else:
-                if user_command:  # 대기중 아닌데 "그냥" 이라고 치면 무시
-                    self.get_logger().info("[System2] Ignored empty command.")
+            if user_command:
+                self.get_logger().info("[System2] Ignored empty command.")
             return
 
-        # 3. 명령이 있는 경우 -> LLM 플랜 생성
+        # 2. 명령이 있는 경우 -> LLM 플랜 생성
         self.get_logger().info(f"[System2] Generating plan for: '{user_command}'")
-
-        # 컨텍스트 병합 (리포트 대기 중이면 리포트 컨텍스트 우선 사용)
-        ctx_to_use = self.pending_context if is_report_response else extra_context
 
         try:
             try:
                 plan_dict = build_plan_dict(
                     user_command=user_command,
                     system1_state=self.latest_state,
-                    extra_context=ctx_to_use,
+                    extra_context=extra_context,
                 )
             except TypeError:
                 plan_dict = build_plan_dict(user_command, self.latest_state)
         except Exception as e:
             self.get_logger().error(f"[System2] LLM plan generation failed: {e}")
-            # 실패 시에도 대기 중이었다면 decision을 보내줘야 System1이 안 멈춤
-            if is_report_response:
-                self._publish_decision(
-                    current_mission_id,
-                    "no_command",
-                    user_command,
-                    f"Error: {e}",
-                )
-                self.waiting_for_decision = False
             return
 
         # mission_id 매핑
-        if is_report_response and current_mission_id:
-            plan_dict["mission_id"] = current_mission_id
-        elif mission_from_payload:
+        if mission_from_payload:
             plan_dict["mission_id"] = mission_from_payload
-
-        
-        # 4. 리포트 응답인 경우: 먼저 decision, 그 다음 플랜 전송
-        if is_report_response:
-            # (1) report_and_wait 종료시키기 위한 decision 먼저 전송
-            self._publish_decision(
-                current_mission_id,
-                "new_plan",
-                user_command,
-                "New plan generated",
-            )
-            self.waiting_for_decision = False
-            self.pending_mission_id = None
-            self.get_logger().info("[System2] Report handled: decision(new_plan) sent.")
-
-            # (2) 그 다음에 실제 플랜 전송
-            self._send_plan(plan_dict, source=source)
-            self.get_logger().info("[System2] Plan sent (Report response).")
-
-        else:
-            # 리포트 응답이 아니라면 기존처럼 플랜만 전송
-            self._send_plan(plan_dict, source=source)
-            self.get_logger().info("[System2] Plan sent (Independent command).")
-
-
-
+        self._send_plan(plan_dict, source=source)
+        self.get_logger().info("[System2] Plan sent.")
 
         # 헬퍼: 플랜 전송 + 로그 공통 처리
     def _send_plan(self, plan_dict: Dict[str, Any], source: str = "unknown"):
@@ -249,18 +218,6 @@ class System2Node(Node):
             f"[System2] Published /system2/plan_cmd (steps={len(plan_dict.get('steps', []))})"
         )
         self.plan_log_pub.publish(String(data=plan_str))
-
-
-
-    # 헬퍼: 결정 메시지 전송
-    def _publish_decision(self, mission_id, decision, cmd, note):
-        payload = {
-            "mission_id": mission_id,
-            "decision": decision,
-            "user_command": cmd,
-            "note": note
-        }
-        self.decision_pub.publish(String(data=json.dumps(payload, ensure_ascii=False)))
 
     # ----------- 기존 헬퍼 함수들 -----------
 

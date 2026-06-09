@@ -25,11 +25,10 @@ system_template = """
 - System-1이 바로 실행할 수 있는 고수준 미션 계획(HighLevelPlan)을 설계한다.
 - 이 계획은 여러 개의 단위 액션(step)으로 구성되며, System-1 Executor가 순차적으로 수행한다.
 
-단위 액션(task)은 다음 5가지만 사용할 수 있다.
+단위 액션(task)은 다음 4가지만 사용할 수 있다.
 - move_to          : 특정 위치/구역으로 이동
 - scan             : 주변을 탐색/정찰
 - track            : 특정 타겟(예: 사람)을 추적
-- report_and_wait  : 상황을 보고하고 추가 지시를 기다림
 - return_to_home   : 사전에 정의된 홈 위치로 복귀
 
 지도는 다음 네 구역으로 나뉜다. (좌표 단위: map 프레임, 단위 m)
@@ -38,20 +37,20 @@ system_template = """
 구역 C: x_min ≤ x < x_c, y_c ≤ y ≤ y_max
 구역 D: x_c ≤ x ≤ x_max, y_c ≤ y ≤ y_max
 
-여기서 (x_min, y_min) = (-10.7, -12.6),
-(x_max, y_max) = (9.8, 18.3),
-x_c = -0.45, y_c = 2.85 이다.
+여기서 (x_min, y_min) = (-10.0, -12),
+(x_max, y_max) = (9.0,18.0),
+x_c = -0.5, y_c = 3.0 이다.
 
 운용자가 "어떤 구역으로 이동해"라고 말하면,
 아래 지정된 구역의 웨이포인트로 이동하라.
 1. A구역 (좌상단) 이동 시:
-   - params: {{"x": -3, "y": -8, "yaw": 0.78}}
+   - params: {{"x": -5.25, "y": -4.5, "yaw": 0.78}}
 2. B구역 (좌하단) 이동 시:
-   - params: {{"x": 4.5, "y": -10, "yaw": 2.35}}
+   - params: {{"x": 4.25, "y": -4.5, "yaw": 2.35}}
 3. C구역 (우상단) 이동 시:
-   - params: {{"x": -3, "y": 13, "yaw": -0.78}}
+   - params: {{"x": -5.25, "y": 10.5, "yaw": -0.78}}
 4. D구역 (우하단) 이동 시:
-   - params: {{"x": 3.0, "y": 14.0, "yaw": -2.35}}
+   - params: {{"x": 4.25, "y": 10.5, "yaw": -2.35}}
 
 중요 규칙:
 - 출력은 반드시 HighLevelPlan 스키마를 따르는 JSON 객체 하나여야 한다.
@@ -60,7 +59,7 @@ x_c = -0.45, y_c = 2.85 이다.
   (예: move_to는 좌표, scan은 sweep_deg / yaw_rate_dps / watch_classes 등).
 - System-1 상태(state_text)에 미션 ID, 현재 task, step_index, 위치, 시각 정보, 제약조건(위험 구역, 승인 필요 구역, 배터리 상황 등)이 들어올 수 있으며,
   이 정보를 반드시 반영해서 합리적인 플랜을 만든다.
-- 추가 컨텍스트(extra_context_text)에는 report_and_wait 등에서 넘어온 pose/vision/state_string 등의
+- 추가 컨텍스트(extra_context_text)에는 pose/vision/state_string 등의
   상세 상황이 요약되어 있을 수 있으며, 이 정보도 함께 고려하여 계획을 설계한다.
 - scan은 정찰이나 스캔혹은 그와 유사한 의미의 명령이 있을때 수행한다. (예를 들어 이동 명령만 있는 경우에는 생성하지 않음)
 - track은 추적이나 추종, 감시 혹은 그와 유사한 의미의 명령이 있을때 수행한다.(예를 들어 이동 명령만 있는 경우에는 생성하지 않음)
@@ -74,7 +73,7 @@ state_text 해석 원칙:
 제약조건 반영:
 - state_text나 운용자 명령에 “위험 구역, 출입 제한, 승인 필요, 배터리 부족, 안전 거리 유지” 등의 제약이 언급되면,
   해당 제약을 어기지 않는 방향으로 steps를 구성해야 한다.
-  예: 승인 필요 구역 → report_and_wait를 통해 승인 요청 후 진입, 배터리 부족 → return_to_home 포함 등.
+  예: 승인 필요 구역은 진입하지 않거나 우회, 배터리 부족 → return_to_home 포함 등.
 
 출력 형식:
 - 반드시 유효한 JSON만 출력한다.
@@ -93,13 +92,66 @@ user_template = """
 {user_command}
 
 위의 상태와 명령을 모두 고려하여,
-Spot+ATS가 수행해야 할 HighLevelPlan JSON을 설계하라.
+cleaner가 수행해야 할 HighLevelPlan JSON을 설계하라.
 """
 
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_template),
         ("user", user_template),
+    ]
+)
+
+final_report_system_template = """
+너는 로봇 운용 로그를 사람이 읽기 쉬운 자연어 보고서로 바꿔주는 운영 보고 도우미다.
+
+목표:
+- 미션 종료 후 들어온 구조화 JSON을 바탕으로,
+- 사람이 바로 이해할 수 있는 짧고 자연스러운 한국어 보고서를 만든다.
+
+반드시 포함할 것:
+- 미션이 성공/실패했는지
+- 어떤 단계들을 수행했는지
+- 탐지된 주요 대상/결과가 무엇인지
+- 실패했다면 어느 단계에서 왜 끝났는지 추정
+
+출력 규칙:
+- 한국어 자연어만 출력한다.
+- 마크다운 코드블록은 쓰지 않는다.
+- 문단형 줄글 하나로 길게 쓰지 않는다.
+- 아래 형식을 반드시 따른다.
+- 각 섹션 제목 앞에 대괄호를 붙인다. 예: [임무 결과]
+- 섹션 사이에는 반드시 빈 줄 한 줄을 넣는다.
+- 각 섹션의 내용은 1~3문장으로 짧게 쓴다.
+- 전체 길이는 대략 6~10문장 정도로 유지한다.
+- 숫자/좌표/거리 정보가 있으면 중요한 것만 자연스럽게 녹여 쓴다.
+
+필수 출력 형식:
+[임무 결과]
+... 
+
+[수행 내용]
+...
+
+[탐지 결과]
+...
+
+[특이 사항]
+...
+"""
+
+final_report_user_template = """
+[최종 미션 보고 JSON]
+{report_json}
+
+위 JSON을 기반으로, 현장 운용자가 읽는 최종 임무 보고서를 자연스럽게 작성하라.
+출력은 반드시 여러 줄로 나누고, 각 섹션 사이를 한 줄 비워라.
+"""
+
+final_report_prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", final_report_system_template),
+        ("user", final_report_user_template),
     ]
 )
 
@@ -131,7 +183,7 @@ def state_to_text(state: Optional[System1State]) -> str:
 
 def extra_context_to_text(extra_context: Optional[Dict[str, Any]]) -> str:
     """
-    report_context 등에서 넘어온 pose/vision/state_string 을
+    추가 컨텍스트로 넘어온 pose/vision/state_string 을
     LLM이 이해하기 쉬운 짧은 요약 텍스트로 변환.
     """
     if not extra_context:
@@ -224,3 +276,19 @@ def build_plan_dict(
     """
     plan = build_plan(user_command, system1_state, extra_context=extra_context)
     return plan.model_dump()
+
+
+def summarize_final_report(report_payload: Dict[str, Any]) -> str:
+    report_json = json_dumps_safe(report_payload)
+    chain = final_report_prompt | llm
+    result = chain.invoke({"report_json": report_json})
+    return getattr(result, "content", str(result)).strip()
+
+
+def json_dumps_safe(payload: Dict[str, Any]) -> str:
+    import json
+
+    try:
+        return json.dumps(payload, ensure_ascii=False, indent=2)
+    except Exception:
+        return str(payload)
