@@ -41,6 +41,7 @@ system_template = """
 여기서 (x_min, y_min) = (-10.7, -12.6),
 (x_max, y_max) = (9.8, 18.3),
 x_c = -0.45, y_c = 2.85 이다.
+
 운용자가 "어떤 구역으로 이동해"라고 말하면,
 아래 지정된 구역의 웨이포인트로 이동하라.
 1. A구역 (좌상단) 이동 시:
@@ -194,11 +195,11 @@ def build_plan(
     user_command + System-1 상태(+ optional extra_context)를 바탕으로
     HighLevelPlan을 생성한다.
     """
-    state_text = state_to_text(system1_state)
-    extra_context_text = extra_context_to_text(extra_context)
+    state_text = state_to_text(system1_state) # 사람이 읽을 수 있는 형태로 변환
+    extra_context_text = extra_context_to_text(extra_context) # 요약 텍스트로 변환
     format_instructions = parser.get_format_instructions()
 
-    chain = prompt | llm | parser
+    chain = prompt | llm | parser # LangChain 파이프라인 구성: 프롬프트 → LLM → 파서 순으로 연결함.
     plan: HighLevelPlan = chain.invoke(
         {
             "user_command": user_command,
