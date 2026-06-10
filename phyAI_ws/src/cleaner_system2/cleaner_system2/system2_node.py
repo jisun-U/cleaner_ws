@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 import threading
 from typing import Optional, Any, Dict, Tuple
 
@@ -15,6 +16,21 @@ from .llm_planner import build_plan_dict, summarize_final_report
 from .utils.visualizer import SnapshotVisualizer
 
 
+ZONE_MOVE_GOALS = {
+    "A": {"x": -3.0, "y": -8.0, "yaw": 0.78},
+    "B": {"x": 4.5, "y": -10.0, "yaw": 2.35},
+    "C": {"x": -3.0, "y": 13.0, "yaw": -0.78},
+    "D": {"x": 3.0, "y": 14.0, "yaw": -2.35},
+}
+
+ZONE_AREAS = {
+    "A": {"min_x": -10.7, "max_x": -0.45, "min_y": -12.6, "max_y": 2.85},
+    "B": {"min_x": -0.45, "max_x": 9.8, "min_y": -12.6, "max_y": 2.85},
+    "C": {"min_x": -10.7, "max_x": -0.45, "min_y": 2.85, "max_y": 18.3},
+    "D": {"min_x": -0.45, "max_x": 9.8, "min_y": 2.85, "max_y": 18.3},
+}
+
+
 def _should_treat_as_no(user_cmd: str) -> bool:
     """운용자 입력이 '추가 명령 없음' 계열인지 판정."""
     if not user_cmd:
@@ -26,6 +42,74 @@ def _should_treat_as_no(user_cmd: str) -> bool:
     ):
         return True
     return False
+
+
+def _extract_zone_command(user_cmd: str) -> Optional[Dict[str, Any]]:
+    if not user_cmd:
+        return None
+
+    match = re.search(r"([ABCD])\s*구역", user_cmd, flags=re.IGNORECASE)
+    if not match:
+        return None
+
+    zone = match.group(1).upper()
+    normalized = re.sub(r"\s+", "", user_cmd.lower())
+
+    # Shortcut only for simple single-intent zone commands.
+    is_simple_clean = normalized in {
+        f"{zone.lower()}구역청소",
+        f"{zone.lower()}구역청소해",
+        f"{zone.lower()}구역청소해줘",
+        f"{zone.lower()}구역청소를진행해",
+        f"{zone.lower()}구역청소를진행해줘",
+    }
+    is_simple_move = normalized in {
+        f"{zone.lower()}구역이동",
+        f"{zone.lower()}구역으로이동",
+        f"{zone.lower()}구역으로이동해",
+        f"{zone.lower()}구역으로이동해줘",
+    }
+
+    if is_simple_clean:
+        steps = [
+            {
+                "task": "cleaner_mode",
+                "params": {
+                    "area": ZONE_AREAS[zone],
+                    "lane_spacing": 0.5,
+                    "sweep_axis": "y",
+                    "start_corner": "bottom_left",
+                    "interval_sec": 0.0,
+                    "cycles": 1,
+                },
+                "retry": 0,
+            }
+        ]
+        intent = f"{zone}구역 청소"
+    elif is_simple_move:
+        steps = [
+            {
+                "task": "move_to",
+                "params": {"goal": ZONE_MOVE_GOALS[zone]},
+                "retry": 0,
+            }
+        ]
+        intent = f"{zone}구역 이동"
+    else:
+        return None
+
+    return {
+        "version": "1.0.0",
+        "mission_id": f"mission_zone_{zone.lower()}",
+        "intent": intent,
+        "constraints": [],
+        "steps": steps,
+        "replan_rules": {
+            "lost_target_sec": 5.0,
+            "battery_rtb": 0.18,
+            "hard_stuck_timeout_sec": 20.0,
+        },
+    }
 
 
 class System2Node(Node):
@@ -173,6 +257,15 @@ class System2Node(Node):
         if _should_treat_as_no(user_command):
             if user_command:
                 self.get_logger().info("[System2] Ignored empty command.")
+            return
+
+        zone_plan = _extract_zone_command(user_command)
+        if zone_plan is not None:
+            self.get_logger().info(f"[System2] Zone shortcut matched for: '{user_command}'")
+            if mission_from_payload:
+                zone_plan["mission_id"] = mission_from_payload
+            self._send_plan(zone_plan, source=source)
+            self.get_logger().info("[System2] Plan sent.")
             return
 
         # 2. 명령이 있는 경우 -> LLM 플랜 생성

@@ -19,6 +19,7 @@ from typing import List, Dict
 import rclpy
 from rclpy.qos import qos_profile_sensor_data
 from rclpy.node import Node
+import torch
 
 from cv_bridge import CvBridge
 
@@ -37,6 +38,19 @@ from yolov8_msgs.msg import KeyPoint2DArray
 from yolov8_msgs.msg import Detection
 from yolov8_msgs.msg import DetectionArray
 from std_srvs.srv import SetBool
+
+
+_original_torch_load = torch.load
+
+
+def _trusted_torch_load(*args, **kwargs):
+    # Trusted local YOLO checkpoints created before PyTorch 2.6 may require
+    # full pickle loading because weights_only=True is now the default.
+    kwargs.setdefault("weights_only", False)
+    return _original_torch_load(*args, **kwargs)
+
+
+torch.load = _trusted_torch_load
 
 
 class Yolov8Node(Node):

@@ -18,13 +18,22 @@ windows:
           - source /home/sunny/cleaner_ws/phyAI_ws/install/setup.bash
           - ros2 run vision_context_builder vision_context_builder_node --ros-args -p depth_topic:=/depth
 
-  - window_name: system1
+  - window_name: yolov8_bringup
     panes:
       - shell_command:
           - source /opt/ros/humble/setup.bash
           - export ROS_DOMAIN_ID=21
           - source /home/sunny/cleaner_ws/phyAI_ws/install/setup.bash
-          - ros2 run cleaner_system1 system1_executor_node
+          - ros2 launch yolov8_bringup yolov8.launch.py input_image_topic:=/yolo/image_raw model:=/home/sunny/cleaner_ws/phyAI_ws/src/yolov8_ros/yolov8m.pt
+
+
+  # - window_name: system1
+  #   panes:
+  #     - shell_command:
+  #         - source /opt/ros/humble/setup.bash
+  #         - export ROS_DOMAIN_ID=21
+  #         - source /home/sunny/cleaner_ws/phyAI_ws/install/setup.bash
+  #         - ros2 run cleaner_system1 system1_executor_node
 
   # - window_name: system2
   #   panes:

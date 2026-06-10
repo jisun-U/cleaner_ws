@@ -26,7 +26,8 @@ HIGH_LEVEL_PLAN_SCHEMA: Dict[str, Any] = {
                             "move_to",
                             "scan",
                             "track",
-                            "return_to_home"
+                            "return_to_home",
+                            "cleaner_mode"
                         ]
                     },
                     "params": {"type": "object"},

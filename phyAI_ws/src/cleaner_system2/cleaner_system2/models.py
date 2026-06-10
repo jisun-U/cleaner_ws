@@ -4,11 +4,12 @@ from pydantic import BaseModel, Field # pydantic : 데이터가 우리가 정한
 
 
 class Step(BaseModel):
-    task: Literal[ # Literal : 4개 이외의 task 종류가 들어오면 error
+    task: Literal[ # Literal : 허용된 task 종류 이외가 들어오면 error
         "move_to",
         "scan",
         "track",
         "return_to_home",
+        "cleaner_mode",
     ]
     params: Dict[str, Any] = Field(default_factory=dict)
     guard: Optional[str] = None

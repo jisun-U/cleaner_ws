@@ -170,6 +170,12 @@ def exec_move_to(
         node.get_logger().error("[move_to] goal 파라미터 없음/형식 오류")
         return False
 
+    # Clear stale feedback from a previous goal so new-goal success is never
+    # decided using an old distance_remaining=0.0 sample.
+    nav_feedback["distance_remaining"] = None
+    nav_feedback["stamp"] = 0.0
+
+    start_pose = dict(getattr(node, "_last_pose", {}) or {})
     goal_handle, result_future = navigator.start(goal)
     if not goal_handle or not result_future:
         node.get_logger().warn("[move_to] navigator.start 실패")
@@ -199,6 +205,7 @@ def exec_move_to(
     last_print = 0.0
     near_goal_since = None
     last_pose_prog = accept_t
+    feedback_seen = False
 
     goal_x = float(goal.get("x", 0.0))
     goal_y = float(goal.get("y", 0.0))
@@ -260,7 +267,10 @@ def exec_move_to(
         # ----------- 진행 상황 확인 (stuck 감지) -----------
         dist = nav_feedback.get("distance_remaining", None)
         fb_stamp = float(nav_feedback.get("stamp", 0.0) or 0.0)
-        if dist is not None:
+        if fb_stamp >= accept_t and dist is not None:
+            feedback_seen = True
+
+        if feedback_seen and dist is not None:
             if dist <= goal_xy_tol:
                 node.get_logger().info(
                     "[move_to] distance_remaining within 20cm -> success "
@@ -299,6 +309,10 @@ def exec_move_to(
                     except Exception as e:
                         node.get_logger().warn(f"[move_to] navigator.cancel 실패: {e}")
                     return False
+        elif dist is not None and fb_stamp < accept_t:
+            node.get_logger().debug(
+                f"[move_to] ignoring stale feedback dist={dist} stamp={fb_stamp:.3f} < accept_t={accept_t:.3f}"
+            )
 
         # ----------- Nav2 결과 확인 (result_future polling) -----------
         if result_future.done():
@@ -311,6 +325,31 @@ def exec_move_to(
             status = getattr(res, "status", None)
             ok = bool(status == 4)  # SUCCEEDED
             if ok:
+                # Guard against false-positive success where Nav2 result arrives
+                # before any fresh feedback and the robot pose never changed
+                # meaningfully toward the new goal.
+                cur_pose = getattr(node, "_last_pose", {}) or {}
+                start_ok = bool(start_pose.get("ok", False))
+                cur_ok = bool(cur_pose.get("ok", False))
+                if not feedback_seen and start_ok and cur_ok:
+                    start_xy_err = math.hypot(
+                        float(start_pose.get("x", 0.0)) - goal_x,
+                        float(start_pose.get("y", 0.0)) - goal_y,
+                    )
+                    cur_xy_err = math.hypot(
+                        float(cur_pose.get("x", 0.0)) - goal_x,
+                        float(cur_pose.get("y", 0.0)) - goal_y,
+                    )
+                    pose_delta = math.hypot(
+                        float(cur_pose.get("x", 0.0)) - float(start_pose.get("x", 0.0)),
+                        float(cur_pose.get("y", 0.0)) - float(start_pose.get("y", 0.0)),
+                    )
+                    if start_xy_err > near_goal_eps and cur_xy_err > goal_xy_tol and pose_delta < pose_progress_eps:
+                        node.get_logger().warn(
+                            "[move_to] Nav2 reported success without fresh feedback or pose progress "
+                            f"(start_xy_err={start_xy_err:.3f}, cur_xy_err={cur_xy_err:.3f}, pose_delta={pose_delta:.3f})"
+                        )
+                        return False
                 node.get_logger().info("[move_to] Nav2 SUCCEEDED")
             else:
                 node.get_logger().warn(f"[move_to] Nav2 FAILED, status={status}")

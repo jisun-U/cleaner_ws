@@ -45,6 +45,14 @@ class DebugNode(Node):
 
         self._class_to_color = {}
         self.cv_bridge = CvBridge()
+        self._window_name = "YOLO Debug View"
+        self._window_created = False
+
+        try:
+            cv2.namedWindow(self._window_name, cv2.WINDOW_NORMAL)
+            self._window_created = True
+        except Exception as e:
+            self.get_logger().warn(f"[debug_node] failed to create OpenCV window: {e}")
 
         # pubs
         self._dbg_pub = self.create_publisher(Image, "dbg_image", 10)
@@ -241,10 +249,27 @@ class DebugNode(Node):
         self._bb_markers_pub.publish(bb_marker_array)
         self._kp_markers_pub.publish(kp_marker_array)
 
+        # Keep a single local OpenCV preview window in addition to publishing the debug image.
+        if self._window_created:
+            try:
+                if cv2.getWindowProperty(self._window_name, cv2.WND_PROP_VISIBLE) < 1:
+                    cv2.namedWindow(self._window_name, cv2.WINDOW_NORMAL)
+                cv2.imshow(self._window_name, cv_image)
+                cv2.waitKey(1)
+            except Exception as e:
+                self.get_logger().warn(f"[debug_node] preview update failed: {e}")
+
 
 def main():
     rclpy.init()
     node = DebugNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    finally:
+        try:
+            if node._window_created:
+                cv2.destroyWindow(node._window_name)
+        except Exception:
+            pass
+        node.destroy_node()
+        rclpy.shutdown()

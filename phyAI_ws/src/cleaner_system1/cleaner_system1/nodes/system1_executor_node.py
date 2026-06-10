@@ -24,6 +24,7 @@ from cleaner_system1.actions.move_to import Nav2Navigator, exec_move_to
 from cleaner_system1.actions.scan import exec_scan
 from cleaner_system1.actions.track import Tracker, DepthBuffer
 from cleaner_system1.actions.return_to_home import exec_return_to_home
+from cleaner_system1.actions.cleaner_mode import exec_cleaner_mode
 
 
 class System1ExecutorNode(Node):
@@ -35,6 +36,7 @@ class System1ExecutorNode(Node):
       - scan            : cleaner로 주변 스캔
       - track           : 타겟 추적 (Tracker)
       - return_to_home  : Home 위치로 복귀(move_to 재사용)
+      - cleaner_mode    : 지정 구역을 일정 간격으로 왕복 순찰
     """
 
     def __init__(self):
@@ -375,6 +377,20 @@ class System1ExecutorNode(Node):
                     replan_rules=replan_rules,
                 )
                 self.get_logger().info(f"[return_to_home] result ok={ok}")
+
+            elif task == "cleaner_mode":
+                replan_rules = plan.get("replan_rules", {})
+                self.get_logger().info(
+                    f"[cleaner_mode] params={params}, replan_rules={replan_rules}"
+                )
+                ok = exec_cleaner_mode(
+                    node=self,
+                    navigator=self.navigator,
+                    nav_feedback=self._nav_feedback,
+                    params=params,
+                    replan_rules=replan_rules,
+                )
+                self.get_logger().info(f"[cleaner_mode] result ok={ok}")
 
             else:
                 self.get_logger().error(f"[Step] unknown task={task}")
