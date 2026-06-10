@@ -1,6 +1,0 @@
-msg/CleanerState.idl
-msg/CleanerState.msg
-msg/PlanCommand.idl
-msg/PlanCommand.msg
-msg/ReplanRequest.idl
-msg/ReplanRequest.msg

@@ -1,8 +1,0 @@
-{
-  "package_name": "cleaner_msgs",
-  "non_idl_tuples": [
-    "/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs:msg/CleanerState.msg",
-    "/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs:msg/PlanCommand.msg",
-    "/home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs:msg/ReplanRequest.msg"
-  ]
-}

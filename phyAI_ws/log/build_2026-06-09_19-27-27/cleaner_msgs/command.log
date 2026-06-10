@@ -1,6 +1,0 @@
-Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs
-Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/cleaner_msgs -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/cleaner_msgs
-Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs -- -j16 -l16
-Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs -- -j16 -l16
-Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs
-Invoked command in '/home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sunny/cleaner_ws/phyAI_ws/build/cleaner_msgs

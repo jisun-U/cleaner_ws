@@ -1,9 +1,0 @@
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/uninstall.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/yolov8_bringup_uninstall.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/test.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/edit_cache.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/rebuild_cache.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/list_install_components.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/install.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/install/local.dir
-/home/sunny/cleaner_ws/phyAI_ws/build/yolov8_bringup/CMakeFiles/install/strip.dir

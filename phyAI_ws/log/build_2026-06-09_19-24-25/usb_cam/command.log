@@ -1,1 +1,0 @@
-Invoking command in '/home/sunny/cleaner_ws/phyAI_ws/build/usb_cam': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sunny/cleaner_ws/phyAI_ws/src/usb_cam -DCMAKE_INSTALL_PREFIX=/home/sunny/cleaner_ws/phyAI_ws/install/usb_cam
